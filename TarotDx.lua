@@ -2581,11 +2581,11 @@ local function overrides()
                             card:add_to_deck()
                             G.consumeables:emplace(card)
                         end
-                        for k, v in pairs(G.GAME.probabilities) do 
-                            G.GAME.probabilities[k] = v*2
-                        end
-                        used_tarot:juice_up(0.3, 0.5)
                     end
+                    for k, v in pairs(G.GAME.probabilities) do 
+                        G.GAME.probabilities[k] = v*2
+                    end
+                    used_tarot:juice_up(0.3, 0.5)
                     return true end }))
             end
 
