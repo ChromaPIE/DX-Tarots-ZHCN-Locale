@@ -141,26 +141,25 @@ local function setUpLocalizationCurses()
             }
         },
         cu_window = {
-            name = "The Window",
+            name = "窗",
             text = {
-                "{C:attention}#1# in #2# chance{} for",
-                "each {C:diamonds}Diamond{} card to",
-                "be {C:attention}debuffed{}",
-                "{C:inactive}(Fixed probability){}"
+                "每张{C:diamonds}方片{}牌均有",
+                "{C:attention}#1#/#2#{}的几率{C:attention}失效",
+                "{C:inactive}（几率不会变动）"
             }
         },
         cu_manacle = {
-            name = "The Manacle",
+            name = "镣铐",
             text = {
-                "{C:attention}-1 Hand Size{} if more",
-                "than {C:blue}#1#{} hand remaining"
+                "若剩余出牌次数大于{C:blue}#1#",
+                "{C:attention}手牌上限-1",
             }
         },
         cu_serpent = {
-            name = "The Serpent",
+            name = "蛇",
             text = {
-                "After the first Play or",
-                "Discard, always draw {C:attention}#1#{} cards"
+                "第一次出牌或弃牌后",
+                "固定抽取{C:attention}#1#{}张牌"
             }
         },
         cu_pillar = {
@@ -413,7 +412,7 @@ local function override()
                     return true end }))
                 G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
                     attention_text({
-                        text = 'Cursed',
+                        text = '降下诅咒',
                         scale = 1.3, 
                         hold = 1.4,
                         major = self,
@@ -930,21 +929,20 @@ function setup_curses()
     setUpLocalizationCurses()
 
     G.localization.descriptions.Other.cursed = {
-        name = "Cursed Version",
+        name = "受诅",
         text = {
-            "Get a random",
-            "{X:black,C:white} curse {} if used",
-            "{C:attention}(x#1#){}"
+            "使用后，随机降下",
+            "{C:attention}#1#{}条{X:black,C:white}诅咒"
         }
     }
-    G.localization.misc.labels['cursed'] = "Cursed Version"
+    G.localization.misc.labels['cursed'] = "受诅牌"
     G.BADGE_COL['cursed'] = G.C.BLACK
     
     -- Manage get_badge_colour
     get_badge_colour(foil)
     G.BADGE_COL['curse'] = G.C.BLACK
 
-    G.localization.misc.labels['curse'] = "Curse"
+    G.localization.misc.labels['curse'] = "诅咒"
 
     override()
 end
@@ -1256,7 +1254,7 @@ function create_UIBox_your_collection()
     -- Insert a new tab
     table.insert(
         t.nodes[1].nodes[1].nodes[1].nodes[2].nodes, 2, 
-        UIBox_button({button = 'your_collection_curses', label = {'Curses'}, minw = 5, id = 'your_collection_curses'})
+        UIBox_button({button = 'your_collection_curses', label = {'诅咒'}, minw = 5, id = 'your_collection_curses'})
     )
 
     return t

@@ -184,12 +184,11 @@ local function setUpLocalizationTarotDX()
     G.localization.descriptions.Tarot_dx = {}
 
     G.localization.descriptions.Tarot_dx.c_fool_dx = {
-        name = "The Fool DX",
+        name = "愚者·豪华",
         text = {
-            "Creates up to {C:attention}2{} copies of",
-            "the last {C:tarot}Tarot{} or {C:planet}Planet{}",
-            "card used during this run",
-            "{s:0.8,C:tarot}The Fool{s:0.8} excluded"
+            "生成{C:attention}2{}张本赛局中",
+            "上一次使用的{C:tarot}塔罗牌{}或{C:planet}星球牌",
+            "{s:0.8}不包括{s:0.8,C:tarot}愚者"
         }
     }
     G.localization.descriptions.Tarot_dx.c_magician_dx = {
@@ -205,7 +204,7 @@ local function setUpLocalizationTarotDX()
         text = {
             "Creates up to {C:attention}#1#",
             "random {C:planet}Planet{} {C:dark_edition}DX{} cards",
-            "{C:inactive}(Must have room)"
+            "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_dx.c_empress_dx = {
@@ -221,39 +220,35 @@ local function setUpLocalizationTarotDX()
         text = {
             "Creates up to {C:attention}#1#",
             "random {C:tarot}Tarot{} {C:dark_edition}DX{} cards",
-            "{C:inactive}(Must have room)"
+            "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_dx.c_heirophant_dx = {
-        name = "The Hierophant DX",
+        name = "教皇·豪华",
         text = {
-            "Enhances up to {C:attention}#1#",
-            "selected cards to",
-            "{C:attention}#2#s"
+            "将至多{C:attention}#1#{}张选定卡牌",
+            "增强为{C:attention}#2#"
         }
     }
     G.localization.descriptions.Tarot_dx.c_lovers_dx = {
-        name = "The Lovers DX",
+        name = "恋人·豪华",
         text = {
-            "Enhances {C:attention}#1#{} selected",
-            "card into",
-            "{C:attention}#2#s"
+            "将至多{C:attention}#1#{}张选定卡牌",
+            "增强为{C:attention}#2#"
         }
     }
     G.localization.descriptions.Tarot_dx.c_chariot_dx = {
-        name = "The Chariot DX",
+        name = "战车·豪华",
         text = {
-            "Enhances {C:attention}#1#{} selected",
-            "card into",
-            "{C:attention}#2#s"
+            "将至多{C:attention}#1#{}张选定卡牌",
+            "增强为{C:attention}#2#"
         }
     }
     G.localization.descriptions.Tarot_dx.c_justice_dx = {
-        name = "Justice DX",
+        name = "正义·豪华",
         text = {
-            "Enhances {C:attention}#1#{} selected",
-            "card into",
-            "{C:attention}#2#s"
+            "将至多{C:attention}#1#{}张选定卡牌",
+            "增强为{C:attention}#2#"
         }
     }
     G.localization.descriptions.Tarot_dx.c_hermit_dx = {
@@ -306,27 +301,24 @@ local function setUpLocalizationTarotDX()
         }
     }
     G.localization.descriptions.Tarot_dx.c_devil_dx = {
-        name = "The Devil DX",
+        name = "恶魔·豪华",
         text = {
-            "Enhances {C:attention}#1#{} selected",
-            "card into",
-            "{C:attention}#2#s"
+            "将至多{C:attention}#1#{}张选定卡牌",
+            "增强为{C:attention}#2#"
         }
     }
     G.localization.descriptions.Tarot_dx.c_tower_dx = {
-        name = "The Tower DX",
+        name = "塔·豪华",
         text = {
-            "Enhances {C:attention}#1#{} selected",
-            "card into",
-            "{C:attention}#2#s"
+            "将至多{C:attention}#1#{}张选定卡牌",
+            "增强为{C:attention}#2#"
         }
     }
     G.localization.descriptions.Tarot_dx.c_star_dx = {
         name = "The Star DX",
         text = {
-            "Converts up to",
-            "{C:attention}#1#{} selected cards",
-            "to {V:1}#2#{}"
+            "将至多{C:attention}#1#{}张选定卡牌",
+            "转换为{V:1}#2#"
         }
     }
     G.localization.descriptions.Tarot_dx.c_moon_dx = {
@@ -350,7 +342,7 @@ local function setUpLocalizationTarotDX()
         text = {
             "Creates a random",
             "{C:green}uncommon{} {C:attention}Joker{} card",
-            "{C:inactive}(Must have room)"
+            "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_dx.c_world_dx = {
@@ -368,12 +360,11 @@ local function setUpLocalizationTarotCU()
     G.localization.descriptions.Tarot_cu = {}
 
     G.localization.descriptions.Tarot_cu.c_fool_cu = {
-        name = "The Cursed Fool",
+        name = "受诅愚者",
         text = {
-            "{C:dark_edition}+1{} consumable slot.",
-            "Creates 2 copies of",
-            "{C:tarot}The Fool{} {C:dark_edition}DX{}",
-            "{C:inactive}(Must have room)"
+            "{C:dark_edition}+1{}消耗牌槽位",
+            "生成2张{C:tarot}愚者{}·{C:dark_edition}豪华",
+            "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_magician_cu = {
@@ -382,7 +373,7 @@ local function setUpLocalizationTarotCU()
             "Permanently doubles all listed",
             "{C:green}probabilities{}. Creates a",
             "copy of {C:tarot}The Magician{} {C:dark_edition}DX{}",
-            "{C:inactive}(Must have room)"
+            "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_high_priestess_cu = {
@@ -392,7 +383,7 @@ local function setUpLocalizationTarotCU()
             "more likely to be {C:dark_edition}Foil{},",
             "{C:dark_edition}Holographic{}, or {C:dark_edition}Polychrome{}.",
             "Creates up to two {C:planet}Planet{} {C:dark_edition}DX{}",
-            "{C:inactive}(Must have room)"
+            "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_empress_cu = {
@@ -402,7 +393,7 @@ local function setUpLocalizationTarotCU()
             "{C:attention}#2#{} bonus to",
             "{C:red}+#1#{} Mult. Creates a",
             "copy of {C:tarot}The Empress{} {C:dark_edition}DX{}",
-            "{C:inactive}(Must have room)"
+            "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_emperor_cu = {
@@ -419,7 +410,7 @@ local function setUpLocalizationTarotCU()
             "{C:attention}#2#{} bonus to",
             "{C:blue}+#1#{} extra chips. Creates a",
             "copy of {C:tarot}The Hierophant{} {C:dark_edition}DX{}",
-            "{C:inactive}(Must have room)"
+            "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_lovers_cu = {
@@ -430,7 +421,7 @@ local function setUpLocalizationTarotCU()
             "{C:inactive}(Drag to rearrange)",
             "Creates a copy of",
             "{C:tarot}The Lovers{} {C:dark_edition}DX{}",
-            "{C:inactive}(Must have room)"
+            "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_chariot_cu = {
@@ -440,7 +431,7 @@ local function setUpLocalizationTarotCU()
             "{C:attention}#2#{} bonus to",
             "{X:red,C:white} X#1# {} Mult. Creates a",
             "copy of {C:tarot}The Chariot{} {C:dark_edition}DX{}",
-            "{C:inactive}(Must have room)"
+            "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_justice_cu = {
@@ -450,7 +441,7 @@ local function setUpLocalizationTarotCU()
             "{C:attention}#2#{} bonus to",
             "{X:red,C:white} X#1# {} Mult. Creates a",
             "copy of {C:tarot}Justice {C:dark_edition}DX{}",
-            "{C:inactive}(Must have room)"
+            "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_hermit_cu = {
@@ -493,7 +484,7 @@ local function setUpLocalizationTarotCU()
             "{C:inactive}(Drag to rearrange)",
             "Creates two copies",
             "of {C:tarot}Death{} {C:dark_edition}DX{}",
-            "{C:inactive}(Must have room)"
+            "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_temperance_cu = {
@@ -512,7 +503,7 @@ local function setUpLocalizationTarotCU()
             "{C:attention}#2#{} gold gain to",
             "{C:money}$#1#{}. Creates a",
             "copy of {C:tarot}The Devil{} {C:dark_edition}DX{}",
-            "{C:inactive}(Must have room)"
+            "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_tower_cu = {
@@ -522,7 +513,7 @@ local function setUpLocalizationTarotCU()
             "{C:attention}#2#{} bonus to",
             "{C:blue}+#1#{} Chips. Creates a",
             "copy of {C:tarot}The Tower{} {C:dark_edition}DX{}",
-            "{C:inactive}(Must have room)"
+            "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_star_cu = {
@@ -531,42 +522,39 @@ local function setUpLocalizationTarotCU()
             "{V:1}#1#{} cannot",
             "get {C:attention}debuffed{}. Creates a",
             "copy of {C:tarot}The Star{} {C:dark_edition}DX{}",
-            "{C:inactive}(Must have room)"
+            "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_moon_cu = {
-        name = "The Cursed Moon",
+        name = "月之暗面",
         text = {
-            "{V:1}#1#{} cannot",
-            "get {C:attention}debuffed{}. Creates a",
-            "copy of {C:tarot}The Moon{} {C:dark_edition}DX{}",
-            "{C:inactive}(Must have room)"
+            "{V:1}#1#{}牌永不{C:attention}失效",
+            "生成一张{C:tarot}月亮{}·{C:dark_edition}豪华",
+            "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_sun_cu = {
-        name = "The Cursed Sun",
+        name = "凌空黑日",
         text = {
-            "{V:1}#1#{} cannot",
-            "get {C:attention}debuffed{}. Creates a",
-            "copy of {C:tarot}The Sun{} {C:dark_edition}DX{}",
-            "{C:inactive}(Must have room)"
+            "{V:1}#1#{}牌永不{C:attention}失效",
+            "生成一张{C:tarot}太阳{}·{C:dark_edition}豪华",
+            "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_judgement_cu = {
-        name = "Cursed Judgement",
+        name = "阴蔑审判",
         text = {
-            "Creates a random",
-            "{C:red}rare{} {C:attention}Joker{} card",
-            "{C:inactive}(Must have room)"
+            "随机生成一张",
+            "{C:red}稀有{C:attention}小丑牌",
+            "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_world_cu = {
-        name = "The Cursed World",
+        name = "忿怨世界",
         text = {
-            "{V:1}#1#{} cannot",
-            "get {C:attention}debuffed{}. Creates a",
-            "copy of {C:tarot}The World{} {C:dark_edition}DX{}",
-            "{C:inactive}(Must have room)"
+            "{V:1}#1#{}牌永不{C:attention}失效",
+            "生成一张{C:tarot}世界{}·{C:dark_edition}豪华",
+            "{C:inactive}（必须有空间）"
         }
     }
 end
@@ -578,7 +566,7 @@ local function setUpLocalizationPlanetDX()
     G.localization.descriptions.Planet_dx.c_mercury_dx = {
         name = "Mercury DX",
         text = {
-            "{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up {C:dark_edition}x2{}",
+            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
             "{C:attention}#2#",
             "{C:mult}+#3#{} Mult and",
             "{C:chips}+#4#{} chips"
@@ -587,7 +575,7 @@ local function setUpLocalizationPlanetDX()
     G.localization.descriptions.Planet_dx.c_venus_dx = {
         name = "Venus DX",
         text = {
-            "{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up {C:dark_edition}x2{}",
+            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
             "{C:attention}#2#",
             "{C:mult}+#3#{} Mult and",
             "{C:chips}+#4#{} chips"
@@ -596,7 +584,7 @@ local function setUpLocalizationPlanetDX()
     G.localization.descriptions.Planet_dx.c_earth_dx = {
         name = "Earth DX",
         text = {
-            "{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up {C:dark_edition}x2{}",
+            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
             "{C:attention}#2#",
             "{C:mult}+#3#{} Mult and",
             "{C:chips}+#4#{} chips"
@@ -605,7 +593,7 @@ local function setUpLocalizationPlanetDX()
     G.localization.descriptions.Planet_dx.c_mars_dx = {
         name = "Mars DX",
         text = {
-            "{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up {C:dark_edition}x2{}",
+            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
             "{C:attention}#2#",
             "{C:mult}+#3#{} Mult and",
             "{C:chips}+#4#{} chips"
@@ -614,7 +602,7 @@ local function setUpLocalizationPlanetDX()
     G.localization.descriptions.Planet_dx.c_jupiter_dx = {
         name = "Jupiter DX",
         text = {
-            "{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up {C:dark_edition}x2{}",
+            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
             "{C:attention}#2#",
             "{C:mult}+#3#{} Mult and",
             "{C:chips}+#4#{} chips"
@@ -623,25 +611,24 @@ local function setUpLocalizationPlanetDX()
     G.localization.descriptions.Planet_dx.c_saturn_dx = {
         name = "Saturn DX",
         text = {
-            "{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up {C:attention}x2{}",
+            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:attention}x2{}",
             "{C:attention}#2#",
             "{C:mult}+#3#{} Mult and",
             "{C:chips}+#4#{} chips"
         }
     }
     G.localization.descriptions.Planet_dx.c_uranus_dx = {
-        name = "Uranus DX",
+        name = "天王星·豪华",
         text = {
-            "{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up {C:dark_edition}x2{}",
-            "{C:attention}#2#",
-            "{C:mult}+#3#{} Mult and",
-            "{C:chips}+#4#{} chips"
+            "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
+            "升级{C:attention}#2#{C:dark_edition}x2",
+            "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
     G.localization.descriptions.Planet_dx.c_neptune_dx = {
         name = "Neptune DX",
         text = {
-            "{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up {C:dark_edition}x2{}",
+            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
             "{C:attention}#2#",
             "{C:mult}+#3#{} Mult and",
             "{C:chips}+#4#{} chips"
@@ -650,7 +637,7 @@ local function setUpLocalizationPlanetDX()
     G.localization.descriptions.Planet_dx.c_pluto_dx = {
         name = "Pluto DX",
         text = {
-            "{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up {C:dark_edition}x2{}",
+            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
             "{C:attention}#2#",
             "{C:mult}+#3#{} Mult and",
             "{C:chips}+#4#{} chips"
@@ -659,7 +646,7 @@ local function setUpLocalizationPlanetDX()
     G.localization.descriptions.Planet_dx.c_ceres_dx = {
         name = "Ceres DX",
         text = {
-            "{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up {C:dark_edition}x2{}",
+            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
             "{C:attention}#2#",
             "{C:mult}+#3#{} Mult and",
             "{C:chips}+#4#{} chips"
@@ -668,7 +655,7 @@ local function setUpLocalizationPlanetDX()
     G.localization.descriptions.Planet_dx.c_planet_x_dx = {
         name = "Planet X DX",
         text = {
-            "{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up {C:dark_edition}x2{}",
+            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
             "{C:attention}#2#",
             "{C:mult}+#3#{} Mult and",
             "{C:chips}+#4#{} chips"
@@ -677,7 +664,7 @@ local function setUpLocalizationPlanetDX()
     G.localization.descriptions.Planet_dx.c_eris_dx = {
         name = "Eris DX",
         text = {
-            "{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up {C:dark_edition}x2{}",
+            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
             "{C:attention}#2#",
             "{C:mult}+#3#{} Mult and",
             "{C:chips}+#4#{} chips"
@@ -725,11 +712,11 @@ local function setUpLocalizationSpectralDX()
         }
     }
     G.localization.descriptions.Spectral_dx.c_aura_dx = {
-        name = "Aura DX",
+        name = "灵气·豪华",
         text = {
-            "Add {C:dark_edition}Foil{}, {C:dark_edition}Holographic{},",
-            "or {C:dark_edition}Polychrome{} effect to up",
-            "to {C:attention}3{} selected cards in hand"
+            "选定至多{C:attention}3{}张手牌",
+            "为其添加{C:dark_edition}闪箔{}、{C:dark_edition}镭射",
+            "或{C:dark_edition}多彩{}版本中的一种"
         }
     }
     G.localization.descriptions.Spectral_dx.c_wraith_dx = {
@@ -779,11 +766,11 @@ local function setUpLocalizationSpectralDX()
         }
     }
     G.localization.descriptions.Spectral_dx.c_deja_vu_dx = {
-        name = "Deja Vu DX",
+        name = "既视感·豪华",
         text = {
-            "Add a {C:red}Red Seal{}",
-            "to up to {C:attention}3{} selected",
-            "cards in your hand"
+            "为手牌中至多{C:attention}3{}张",
+            "选定的卡牌",
+            "打上{C:red}红色蜡封"
         }
     }
     G.localization.descriptions.Spectral_dx.c_hex_dx = {
@@ -826,11 +813,10 @@ local function setUpLocalizationSpectralDX()
         }
     }
     G.localization.descriptions.Spectral_dx.c_black_hole_dx = {
-        name = "Black Hole DX",
+        name = "黑洞·豪华",
         text = {
-            "Upgrade every",
-            "{C:legendary,E:1}poker hand",
-            "by {C:attention}3{} levels"
+            "所有{C:legendary,E:1}牌型",
+            "提升{C:attention}3{}级"
         }
     }
 end
@@ -838,30 +824,27 @@ end
 local function setUpLocalizationBoosterDX()
 
     G.localization.descriptions.Other.p_arcana_normal_dx = {
-        name = "Arcana Pack DX",
+        name = "豪华秘术包",
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{C:tarot} Tarot{} cards to",
-            "be used immediately",
-            "{C:inactive}(You feel lucky...)"
+            "从至多{C:attention}#2#{}张{C:tarot}塔罗牌{}中",
+            "选择{C:attention}#1#{}张并立即使用",
+            "{C:inactive}（你感到运气满满……）"
         }
     }
     G.localization.descriptions.Other.p_arcana_jumbo_dx = {
-        name = "Jumbo Arcana Pack DX",
+        name = "巨型豪华秘术包",
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{C:tarot} Tarot{} cards to",
-            "be used immediately",
-            "{C:inactive}(You feel lucky...)"
+            "从至多{C:attention}#2#{}张{C:tarot}塔罗牌{}中",
+            "选择{C:attention}#1#{}张并立即使用",
+            "{C:inactive}（你感到运气满满……）"
         }
     }
     G.localization.descriptions.Other.p_arcana_mega_dx = {
-        name = "Mega Arcana Pack DX",
+        name = "超级豪华秘术包",
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{C:tarot} Tarot{} cards to",
-            "be used immediately",
-            "{C:inactive}(You feel lucky...)"
+            "从至多{C:attention}#2#{}张{C:tarot}塔罗牌{}中",
+            "选择{C:attention}#1#{}张并立即使用",
+            "{C:inactive}（你感到运气满满……）"
         }
     }
     G.localization.descriptions.Other.p_celestial_normal_dx = {
@@ -919,30 +902,27 @@ local function setUpLocalizationBoosterDX()
         }
     }
     G.localization.descriptions.Other.p_standard_normal_dx = {
-        name = "Standard Pack DX",
+        name = "豪华标准包",
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{C:attention} Playing{} cards to",
-            "add to your deck",
-            "{C:inactive}(You feel lucky...)"
+            "从最多{C:attention}#2#{}张{C:attention}游戏牌{}中",
+            "选择{C:attention}#1#{}张加入牌组",
+            "{C:inactive}（你感到运气满满……）"
         }
     }
     G.localization.descriptions.Other.p_standard_jumbo_dx = {
-        name = "Jumbo Standard Pack DX",
+        name = "巨型豪华标准包",
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{C:attention} Playing{} cards to",
-            "add to your deck",
-            "{C:inactive}(You feel lucky...)"
+            "从最多{C:attention}#2#{}张{C:attention}游戏牌{}中",
+            "选择{C:attention}#1#{}张加入牌组",
+            "{C:inactive}（你感到运气满满……）"
         }
     }
     G.localization.descriptions.Other.p_standard_mega_dx = {
-        name = "Mega Standard Pack DX",
+        name = "超级豪华标准包",
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{C:attention} Playing{} cards to",
-            "add to your deck",
-            "{C:inactive}(You feel lucky...)"
+            "从最多{C:attention}#2#{}张{C:attention}游戏牌{}中",
+            "选择{C:attention}#1#{}张加入牌组",
+            "{C:inactive}（你感到运气满满……）"
         }
     }
     G.localization.descriptions.Other.p_buffoon_normal_dx = {
@@ -974,12 +954,10 @@ end
 local function setUpLocalizationEnhanced()
     
     G.localization.descriptions.Enhanced.m_wild_cu = {
-        name = "Wild Card",
+        name = "百搭牌",
         text = {
-            "Can be used",
-            "as any suit",
-            "Copy rank of",
-            "its left card"
+            "可以视作任何花色",
+            "复制其左侧卡牌的点数"
         }
     }
 end
@@ -3682,7 +3660,7 @@ function SMODS.INIT.JeffDeluxeConsumablesPack()
     sprite_dx:register()
     sprite_dx = SMODS.Sprite:new("Spectral_dx", js_mod.path, "Tarots_dx.png", 71, 95, "asset_atli")
     sprite_dx:register()
-    sprite_dx = SMODS.Sprite:new("Booster_dx", js_mod.path, "booster_dx.png", 71, 95, "asset_atli")
+    sprite_dx = SMODS.Sprite:new("Booster_dx", js_mod.path, "Booster_dx.png", 71, 95, "asset_atli")
     sprite_dx:register()
 
     -- Add consumables
@@ -3696,33 +3674,33 @@ function SMODS.INIT.JeffDeluxeConsumablesPack()
     setUpLocalizationBoosterDX()
     setUpLocalizationEnhanced()
     G.localization.descriptions.Other.dx = {
-        name = "Deluxe Version",
+        name = "豪华版",
         text = {
-            "Enhanced effect",
+            "卡牌效果获得增强",
         }
     }
     G.localization.descriptions.Other.unique = {
-        name = "Unique",
+        name = "独一无二",
         text = {
-            "Cannot be pulled",
-            "again this run"
+            "本赛局内",
+            "不会再次出现"
         }
     }
-    G.localization.misc.labels['tarot_dx'] = "Tarot DX"
-    G.localization.misc.labels['planet_dx'] = "Planet DX"
-    G.localization.misc.labels['spectral_dx'] = "Spectral DX"
-    G.localization.misc.labels['booster_dx'] = "Booster DX"
-    G.localization.misc.labels['dx'] = "DX Version"
-    G.localization.misc.labels['unique'] = "Unique"
+    G.localization.misc.labels['tarot_dx'] = "豪华塔罗牌"
+    G.localization.misc.labels['planet_dx'] = "豪华星球牌"
+    G.localization.misc.labels['spectral_dx'] = "豪华幻灵牌"
+    G.localization.misc.labels['booster_dx'] = "豪华补充包"
+    G.localization.misc.labels['dx'] = "豪华版"
+    G.localization.misc.labels['unique'] = "独一无二"
     G.localization.misc.labels['star_bu'] = "Diamonds Buff"
     G.localization.misc.labels['moon_bu'] = "Clubs Buff"
     G.localization.misc.labels['sun_bu'] = "Hearts Buff"
     G.localization.misc.labels['world_bu'] = "Spades Buff"
-    G.localization.misc.dictionary['k_tarot_dx'] = "Tarot DX"
-    G.localization.misc.dictionary['k_tarot_cu'] = "Cursed Tarot"
-    G.localization.misc.dictionary['k_planet_dx'] = "Planet DX"
-    G.localization.misc.dictionary['k_spectral_dx'] = "Spectral DX"
-    G.localization.misc.dictionary['k_booster_dx'] = "Booster DX"
+    G.localization.misc.dictionary['k_tarot_dx'] = "豪华塔罗牌"
+    G.localization.misc.dictionary['k_tarot_cu'] = "受诅塔罗牌"
+    G.localization.misc.dictionary['k_planet_dx'] = "豪华星球牌"
+    G.localization.misc.dictionary['k_spectral_dx'] = "豪华幻灵牌"
+    G.localization.misc.dictionary['k_booster_dx'] = "豪华补充包"
 
     -- Manage loc_colour
     loc_colour('red', nil)
