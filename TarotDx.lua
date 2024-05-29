@@ -292,12 +292,12 @@ local function setUpLocalizationTarotDX()
         }
     }
     G.localization.descriptions.Tarot_dx.c_temperance_dx = {
-        name = "Temperance DX",
+        name = "节制·豪华",
         text = {
-            "Gives double the total sell",
-            "value of all current",
-            "Jokers {C:inactive}(Max of {C:money}$#1#{C:inactive})",
-            "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
+            "获得双倍于当前所拥有的",
+            "小丑牌售出总价的资金",
+            "{C:inactive}（上限为{C:money}$#1#{C:inactive}）",
+            "{C:inactive}（当前可获得{C:money}$#2#{C:inactive}）"
         }
     }
     G.localization.descriptions.Tarot_dx.c_devil_dx = {
@@ -425,22 +425,18 @@ local function setUpLocalizationTarotCU()
         }
     }
     G.localization.descriptions.Tarot_cu.c_chariot_cu = {
-        name = "The Cursed Chariot",
+        name = "鬼魅战车",
         text = {
-            "Permanently increases",
-            "{C:attention}#2#{} bonus to",
-            "{X:red,C:white} X#1# {} Mult. Creates a",
-            "copy of {C:tarot}The Chariot{} {C:dark_edition}DX{}",
+            "永久提升{C:attention}#2#{}的加成至{X:red,C:white} X#1#",
+            "生成一张{C:tarot}战车{}·{C:dark_edition}豪华",
             "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_justice_cu = {
-        name = "Cursed Justice",
+        name = "畸变正义",
         text = {
-            "Permanently increases",
-            "{C:attention}#2#{} bonus to",
-            "{X:red,C:white} X#1# {} Mult. Creates a",
-            "copy of {C:tarot}Justice {C:dark_edition}DX{}",
+            "永久提升{C:attention}#2#{}的加成至{X:red,C:white} X#1#",
+            "生成一张{C:tarot}正义{}·{C:dark_edition}豪华",
             "{C:inactive}（必须有空间）"
         }
     }
@@ -488,12 +484,12 @@ local function setUpLocalizationTarotCU()
         }
     }
     G.localization.descriptions.Tarot_cu.c_temperance_cu = {
-        name = "Cursed Temperance",
+        name = "欲壑难平",
         text = {
-            "Gives {C:money}$10{} per",
-            "current Joker",
-            "{C:inactive}(Max of {C:money}$#1#{C:inactive})",
-            "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
+            "每拥有一张小丑牌",
+            "给予{C:money}$10",
+            "{C:inactive}（上限为{C:money}$#1#{C:inactive}）",
+            "{C:inactive}（当前可获得{C:money}$#2#{C:inactive}）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_devil_cu = {
@@ -507,12 +503,10 @@ local function setUpLocalizationTarotCU()
         }
     }
     G.localization.descriptions.Tarot_cu.c_tower_cu = {
-        name = "The Cursed Tower",
+        name = "咒波高塔",
         text = {
-            "Permanently increases",
-            "{C:attention}#2#{} bonus to",
-            "{C:blue}+#1#{} Chips. Creates a",
-            "copy of {C:tarot}The Tower{} {C:dark_edition}DX{}",
+            "永久提升{C:attention}#2#{}的加成至{C:blue}+#1#{}筹码",
+            "生成一张{C:tarot}塔{}·{C:dark_edition}豪华",
             "{C:inactive}（必须有空间）"
         }
     }
@@ -564,110 +558,99 @@ local function setUpLocalizationPlanetDX()
     G.localization.descriptions.Planet_dx = {}
 
     G.localization.descriptions.Planet_dx.c_mercury_dx = {
-        name = "Mercury DX",
+        name = "水星·豪华",
         text = {
-            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
-            "{C:attention}#2#",
-            "{C:mult}+#3#{} Mult and",
-            "{C:chips}+#4#{} chips"
+            "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
+            "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
     G.localization.descriptions.Planet_dx.c_venus_dx = {
-        name = "Venus DX",
+        name = "金星·豪华",
         text = {
-            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
-            "{C:attention}#2#",
-            "{C:mult}+#3#{} Mult and",
-            "{C:chips}+#4#{} chips"
+            "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
+            "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
     G.localization.descriptions.Planet_dx.c_earth_dx = {
-        name = "Earth DX",
+        name = "地球·豪华",
         text = {
-            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
-            "{C:attention}#2#",
-            "{C:mult}+#3#{} Mult and",
-            "{C:chips}+#4#{} chips"
+            "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
+            "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
     G.localization.descriptions.Planet_dx.c_mars_dx = {
-        name = "Mars DX",
+        name = "火星·豪华",
         text = {
-            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
-            "{C:attention}#2#",
-            "{C:mult}+#3#{} Mult and",
-            "{C:chips}+#4#{} chips"
+            "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
+            "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
     G.localization.descriptions.Planet_dx.c_jupiter_dx = {
-        name = "Jupiter DX",
+        name = "木星·豪华",
         text = {
-            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
-            "{C:attention}#2#",
-            "{C:mult}+#3#{} Mult and",
-            "{C:chips}+#4#{} chips"
+            "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
+            "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
     G.localization.descriptions.Planet_dx.c_saturn_dx = {
-        name = "Saturn DX",
+        name = "土星·豪华",
         text = {
-            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:attention}x2{}",
-            "{C:attention}#2#",
-            "{C:mult}+#3#{} Mult and",
-            "{C:chips}+#4#{} chips"
+            "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
+            "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
     G.localization.descriptions.Planet_dx.c_uranus_dx = {
         name = "天王星·豪华",
         text = {
             "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
-            "升级{C:attention}#2#{C:dark_edition}x2",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
             "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
     G.localization.descriptions.Planet_dx.c_neptune_dx = {
-        name = "Neptune DX",
+        name = "海王星·豪华",
         text = {
-            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
-            "{C:attention}#2#",
-            "{C:mult}+#3#{} Mult and",
-            "{C:chips}+#4#{} chips"
+            "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
+            "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
     G.localization.descriptions.Planet_dx.c_pluto_dx = {
-        name = "Pluto DX",
+        name = "冥王星·豪华",
         text = {
-            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
-            "{C:attention}#2#",
-            "{C:mult}+#3#{} Mult and",
-            "{C:chips}+#4#{} chips"
+            "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
+            "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
     G.localization.descriptions.Planet_dx.c_ceres_dx = {
-        name = "Ceres DX",
+        name = "谷神星·豪华",
         text = {
-            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
-            "{C:attention}#2#",
-            "{C:mult}+#3#{} Mult and",
-            "{C:chips}+#4#{} chips"
+            "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
+            "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
     G.localization.descriptions.Planet_dx.c_planet_x_dx = {
-        name = "Planet X DX",
+        name = "X行星·豪华",
         text = {
-            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
-            "{C:attention}#2#",
-            "{C:mult}+#3#{} Mult and",
-            "{C:chips}+#4#{} chips"
+            "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
+            "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
     G.localization.descriptions.Planet_dx.c_eris_dx = {
-        name = "Eris DX",
+        name = "阋神星·豪华",
         text = {
-            "{s:0.8}({s:0.8,V:1}lvl.#1#{s:0.8}){} Level up {C:dark_edition}x2{}",
-            "{C:attention}#2#",
-            "{C:mult}+#3#{} Mult and",
-            "{C:chips}+#4#{} chips"
+            "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
+            "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
 end
@@ -805,11 +788,10 @@ local function setUpLocalizationSpectralDX()
         }
     }
     G.localization.descriptions.Spectral_dx.c_soul_dx = {
-        name = "The Soul DX",
+        name = "灵魂·豪华",
         text = {
-            "Creates a",
-            "{C:legendary,E:1}Legendary{} Joker",
-            "{C:inactive}(Don't need room...?)"
+            "生成一张{C:legendary,E:1}传奇{}小丑牌",
+            "{C:inactive}（不需要空间……？）"
         }
     }
     G.localization.descriptions.Spectral_dx.c_black_hole_dx = {
@@ -848,63 +830,57 @@ local function setUpLocalizationBoosterDX()
         }
     }
     G.localization.descriptions.Other.p_celestial_normal_dx = {
-        name = "Celestial Pack DX",
+        name = "豪华天体包",
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{C:planet} Planet{} cards to",
-            "be used immediately",
-            "{C:inactive}(You feel lucky...)"
+            "从至多{C:attention}#2#{}张{C:planet}星球牌{}中",
+            "选择{C:attention}#1#{}张并立即使用",
+            "{C:inactive}（你感到运气满满……）"
         }
     }
     G.localization.descriptions.Other.p_celestial_jumbo_dx = {
-        name = "Jumbo Celestial Pack DX",
+        name = "巨型豪华天体包",
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{C:planet} Planet{} cards to",
-            "be used immediately",
-            "{C:inactive}(You feel lucky...)"
+            "从至多{C:attention}#2#{}张{C:planet}星球牌{}中",
+            "选择{C:attention}#1#{}张并立即使用",
+            "{C:inactive}（你感到运气满满……）"
         }
     }
     G.localization.descriptions.Other.p_celestial_mega_dx = {
-        name = "Mega Celestial Pack DX",
+        name = "超级豪华天体包",
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{C:planet} Planet{} cards to",
-            "be used immediately",
-            "{C:inactive}(You feel lucky...)"
+            "从至多{C:attention}#2#{}张{C:planet}星球牌{}中",
+            "选择{C:attention}#1#{}张并立即使用",
+            "{C:inactive}（你感到运气满满……）"
         }
     }
     G.localization.descriptions.Other.p_spectral_normal_dx = {
-        name = "Spectral Pack DX",
+        name = "豪华幻灵包",
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{C:spectral} Spectral{} cards to",
-            "be used immediately",
-            "{C:inactive}(You feel lucky...)"
+            "从至多{C:attention}#2#{}张{C:spectral}幻灵牌{}中",
+            "选择{C:attention}#1#{}张并立即使用",
+            "{C:inactive}（你感到运气满满……）"
         }
     }
     G.localization.descriptions.Other.p_spectral_jumbo_dx = {
-        name = "Jumbo Spectral Pack DX",
+        name = "巨型豪华幻灵包",
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{C:spectral} Spectral{} cards to",
-            "be used immediately",
-            "{C:inactive}(You feel lucky...)"
+            "从至多{C:attention}#2#{}张{C:spectral}幻灵牌{}中",
+            "选择{C:attention}#1#{}张并立即使用",
+            "{C:inactive}（你感到运气满满……）"
         }
     }
     G.localization.descriptions.Other.p_spectral_mega_dx = {
-        name = "Mega Spectral Pack DX",
+        name = "超级豪华幻灵包",
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{C:spectral} Spectral{} cards to",
-            "be used immediately",
-            "{C:inactive}(You feel lucky...)"
+            "从至多{C:attention}#2#{}张{C:spectral}幻灵牌{}中",
+            "选择{C:attention}#1#{}张并立即使用",
+            "{C:inactive}（你感到运气满满……）"
         }
     }
     G.localization.descriptions.Other.p_standard_normal_dx = {
         name = "豪华标准包",
         text = {
-            "从最多{C:attention}#2#{}张{C:attention}游戏牌{}中",
+            "从最多{C:attention}#2#{}张{C:attention}扑克牌{}中",
             "选择{C:attention}#1#{}张加入牌组",
             "{C:inactive}（你感到运气满满……）"
         }
@@ -912,7 +888,7 @@ local function setUpLocalizationBoosterDX()
     G.localization.descriptions.Other.p_standard_jumbo_dx = {
         name = "巨型豪华标准包",
         text = {
-            "从最多{C:attention}#2#{}张{C:attention}游戏牌{}中",
+            "从最多{C:attention}#2#{}张{C:attention}扑克牌{}中",
             "选择{C:attention}#1#{}张加入牌组",
             "{C:inactive}（你感到运气满满……）"
         }
@@ -920,33 +896,33 @@ local function setUpLocalizationBoosterDX()
     G.localization.descriptions.Other.p_standard_mega_dx = {
         name = "超级豪华标准包",
         text = {
-            "从最多{C:attention}#2#{}张{C:attention}游戏牌{}中",
+            "从最多{C:attention}#2#{}张{C:attention}扑克牌{}中",
             "选择{C:attention}#1#{}张加入牌组",
             "{C:inactive}（你感到运气满满……）"
         }
     }
     G.localization.descriptions.Other.p_buffoon_normal_dx = {
-        name = "Buffoon Pack DX",
+        name = "豪华丑角包",
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{C:joker} Joker{} cards",
-            "{C:inactive}(You feel lucky...)"
+            "从至多{C:attention}#2#{}张{C:joker}小丑牌{}中",
+            "选择{C:attention}#1#{}张",
+            "{C:inactive}（你感到运气满满……）"
         }
     }
     G.localization.descriptions.Other.p_buffoon_jumbo_dx = {
-        name = "Jumbo Buffoon Pack DX",
+        name = "巨型豪华丑角包",
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{C:joker} Joker{} cards",
-            "{C:inactive}(You feel lucky...)"
+            "从至多{C:attention}#2#{}张{C:joker}小丑牌{}中",
+            "选择{C:attention}#1#{}张",
+            "{C:inactive}（你感到运气满满……）"
         }
     }
     G.localization.descriptions.Other.p_buffoon_mega_dx = {
-        name = "Mega Buffoon Pack DX",
+        name = "超级豪华丑角包",
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{C:joker} Joker{} cards",
-            "{C:inactive}(You feel lucky...)"
+            "从至多{C:attention}#2#{}张{C:joker}小丑牌{}中",
+            "选择{C:attention}#1#{}张",
+            "{C:inactive}（你感到运气满满……）"
         }
     }
 end
@@ -1280,7 +1256,7 @@ local function overrides()
 
         -- poll planet edition if it is enabled
         if planet_edition_enabled then
-            if (_type == 'Planet' or _type == 'Planet_dx') and created_card.ability.consumeable.hand_type then
+            if (_type == 'Planet' or _type == 'Planet_dx') and created_card.ability.consumeable ~= nil and created_card.ability.consumeable.hand_type then
                 local mod = math.max(1, 1 + (0.07 * math.min(7, G.GAME.hands[created_card.ability.consumeable.hand_type].level))) or 1
                 if G.GAME.used_cu_augments and G.GAME.used_cu_augments.c_high_priestess_cu then mod = mod * G.P_CENTERS.c_high_priestess_cu.config.prob_mult end
                 local edition = poll_edition('edi'..(key_append or '')..G.GAME.round_resets.ante, mod, true)
