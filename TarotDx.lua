@@ -192,11 +192,10 @@ local function setUpLocalizationTarotDX()
         }
     }
     G.localization.descriptions.Tarot_dx.c_magician_dx = {
-        name = "The Magician DX",
+        name = "魔术师·豪华",
         text = {
-            "Enhances {C:attention}#1#{}",
-            "selected cards to",
-            "{C:attention}#2#s"
+            "将{C:attention}#1#{}张选定卡牌",
+            "增强为{C:attention}#2#"
         }
     }
     G.localization.descriptions.Tarot_dx.c_high_priestess_dx = {
@@ -252,43 +251,42 @@ local function setUpLocalizationTarotDX()
         }
     }
     G.localization.descriptions.Tarot_dx.c_hermit_dx = {
-        name = "The Hermit DX",
+        name = "隐者·豪华",
         text = {
-            "Triples money",
-            "{C:inactive}(Max of {C:money}$#1#{C:inactive})"
+            "资金翻三倍",
+            "{C:inactive}（至多{C:money}$#1#{C:inactive}）"
         }
     }
     G.localization.descriptions.Tarot_dx.c_wheel_of_fortune_dx = {
-        name = "The Wheel of Fortune DX",
+        name = "命运之轮·豪华",
         text = {
-            "{C:green}#1# in #2#{} chance to add",
-            "{C:dark_edition}Foil{}, {C:dark_edition}Holographic{}, or",
-            "{C:dark_edition}Polychrome{} edition",
-            "to a random {C:attention}Joker"
+            "有{C:green}#1#/#2#{}的几率",
+            "为随机一张{C:attention}小丑牌",
+            "添加{C:dark_edition}闪箔{}、{C:dark_edition}镭射{}",
+            "或{C:dark_edition}多彩{}版本"
         }
     }
     G.localization.descriptions.Tarot_dx.c_strength_dx = {
-        name = "Strength DX",
+        name = "力量·豪华",
         text = {
-            "Increases rank of",
-            "up to {C:attention}#1#{} selected",
-            "cards by {C:attention}1"
+            "将最多{C:attention}#1#{}张",
+            "选定卡牌的",
+            "点数提高{C:attention}1"
         }
     }
     G.localization.descriptions.Tarot_dx.c_hanged_man_dx = {
-        name = "The Hanged Man DX",
+        name = "倒吊人·豪华",
         text = {
-            "Destroys up to",
-            "{C:attention}#1#{} selected cards"
+            "摧毁至多{C:attention}#1#{}张",
+            "选定卡牌"
         }
     }
     G.localization.descriptions.Tarot_dx.c_death_dx = {
-        name = "Death DX",
+        name = "死神·豪华",
         text = {
-            "Select {C:attention}#1#{} cards,",
-            "convert the {C:attention}left{} cards",
-            "into the {C:attention}right{} card",
-            "{C:inactive}(Drag to rearrange)"
+            "选定{C:attention}#1#{}张牌",
+            "使其全部变为{C:attention}最右侧{}的牌",
+            "{C:inactive}（拖动以改变位置）"
         }
     }
     G.localization.descriptions.Tarot_dx.c_temperance_dx = {
@@ -322,19 +320,19 @@ local function setUpLocalizationTarotDX()
         }
     }
     G.localization.descriptions.Tarot_dx.c_moon_dx = {
-        name = "The Moon DX",
+        name = "月亮·豪华",
         text = {
-            "Converts up to",
-            "{C:attention}#1#{} selected cards",
-            "to {V:1}#2#{}"
+            "将最多{C:attention}#1#{}张",
+            "选定卡牌",
+            "转换为{V:1}#2#"
         }
     }
     G.localization.descriptions.Tarot_dx.c_sun_dx = {
-        name = "The Sun DX",
+        name = "太阳·豪华",
         text = {
-            "Converts up to",
-            "{C:attention}#1#{} selected cards",
-            "to {V:1}#2#{}"
+            "将最多{C:attention}#1#{}张",
+            "选定卡牌",
+            "转换为{V:1}#2#"
         }
     }
     G.localization.descriptions.Tarot_dx.c_judgement_dx = {
@@ -346,11 +344,11 @@ local function setUpLocalizationTarotDX()
         }
     }
     G.localization.descriptions.Tarot_dx.c_world_dx = {
-        name = "The World DX",
+        name = "世界·豪华",
         text = {
-            "Converts up to",
-            "{C:attention}#1#{} selected cards",
-            "to {V:1}#2#{}"
+            "将最多{C:attention}#1#{}张",
+            "选定卡牌",
+            "转换为{V:1}#2#"
         }
     }
 end
@@ -368,39 +366,35 @@ local function setUpLocalizationTarotCU()
         }
     }
     G.localization.descriptions.Tarot_cu.c_magician_cu = {
-        name = "The Cursed Magician",
+        name = "蛊术师",
         text = {
-            "Permanently doubles all listed",
-            "{C:green}probabilities{}. Creates a",
-            "copy of {C:tarot}The Magician{} {C:dark_edition}DX{}",
+            "所有标注出的{C:green}几率{}永久翻倍",
+            "生成一张{C:tarot}魔术师{}·{C:dark_edition}豪华",
             "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_high_priestess_cu = {
-        name = "The Cursed High Priestess",
+        name = "降咒女祭司",
         text = {
-            "{C:planet}Planet{} cards are {C:attention}#1# times{}",
-            "more likely to be {C:dark_edition}Foil{},",
-            "{C:dark_edition}Holographic{}, or {C:dark_edition}Polychrome{}.",
-            "Creates up to two {C:planet}Planet{} {C:dark_edition}DX{}",
+            "{C:planet}星球牌{}带有{C:dark_edition}闪箔{}、{C:dark_edition}镭射",
+            "或{C:dark_edition}多彩{}的几率提升{C:attention}#1#倍",
+            "生成至多两张{C:dark_edition}豪华{C:planet}星球牌",
             "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_empress_cu = {
-        name = "The Empress DX",
+        name = "邪后",
         text = {
-            "Permanently increases",
-            "{C:attention}#2#{} bonus to",
-            "{C:red}+#1#{} Mult. Creates a",
-            "copy of {C:tarot}The Empress{} {C:dark_edition}DX{}",
+            "永久提升{C:attention}#2#{}的加成至{C:red}+#1#{}倍率",
+            "生成一张{C:tarot}皇后{}·{C:dark_edition}豪华",
             "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_emperor_cu = {
-        name = "The Cursed Emperor",
+        name = "邪皇",
         text = {
-            "Creates {C:attention}#1#{} random",
-            "{C:dark_edition}negative DX{} {C:tarot}Tarot{} cards"
+            "随机生成{C:attention}#1#{}张",
+            "{C:dark_edition}负片豪华{C:tarot}塔罗牌"
         }
     }
     G.localization.descriptions.Tarot_cu.c_heirophant_cu = {
@@ -464,22 +458,19 @@ local function setUpLocalizationTarotCU()
         }
     }
     G.localization.descriptions.Tarot_cu.c_hanged_man_cu = {
-        name = "The Cursed Hanged Man",
+        name = "悬命之人",
         text = {
-            "Select up to {C:attention}#1#{} cards,",
-            "destroys {C:attention}all cards{} matching",
-            "{C:attention}selected ranks{}"
+            "选定至多{C:attention}#1#{}张卡牌",
+            "摧毁与之{C:attention}点数相同{}的{C:attention}所有卡牌"
         }
     }
     G.localization.descriptions.Tarot_cu.c_death_cu = {
-        name = "Cursed Death",
+        name = "决罚死神",
         text = {
-            "Select {C:attention}#1#{} cards,",
-            "convert the {C:attention}left{} cards",
-            "into the {C:attention}right{} card",
-            "{C:inactive}(Drag to rearrange)",
-            "Creates two copies",
-            "of {C:tarot}Death{} {C:dark_edition}DX{}",
+            "选定{C:attention}#1#{}张牌",
+            "使其全部变为{C:attention}最右侧{}的牌",
+            "{C:inactive}（拖动以改变位置）",
+            "生成两张{C:tarot}死神{}·{C:dark_edition}豪华",
             "{C:inactive}（必须有空间）"
         }
     }
@@ -703,26 +694,24 @@ local function setUpLocalizationSpectralDX()
         }
     }
     G.localization.descriptions.Spectral_dx.c_wraith_dx = {
-        name = "Wraith DX",
+        name = "幽灵·豪华",
         text = {
-            "Creates a random",
-            "{C:red}Rare{C:attention} Joker{},"
+            "随机生成一张",
+            "{C:red}稀有{C:attention}小丑牌"
         }
     }
     G.localization.descriptions.Spectral_dx.c_sigil_dx = {
-        name = "Sigil DX",
+        name = "符印·豪华",
         text = {
-            "Converts all cards",
-            "in hand to a single",
-            "selected {C:attention}suit"
+            "将所有手牌的花色",
+            "转换为选定牌的{C:attention}花色"
         }
     }
     G.localization.descriptions.Spectral_dx.c_ouija_dx = {
-        name = "Ouija DX",
+        name = "显灵盘·豪华",
         text = {
-            "Converts all cards",
-            "in hand to a single",
-            "selected {C:attention}rank"
+            "将所有手牌的点数",
+            "转换为选定牌的{C:attention}点数"
         }
     }
     G.localization.descriptions.Spectral_dx.c_ectoplasm_dx = {
@@ -742,10 +731,9 @@ local function setUpLocalizationSpectralDX()
         }
     }
     G.localization.descriptions.Spectral_dx.c_ankh_dx = {
-        name = "Ankh DX",
+        name = "生命十字章·豪华",
         text = {
-            "Create a copy of a",
-            "random {C:attention}Joker{}"
+            "随机复制一张{C:attention}小丑牌"
         }
     }
     G.localization.descriptions.Spectral_dx.c_deja_vu_dx = {
