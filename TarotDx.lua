@@ -203,7 +203,7 @@ local function setUpLocalizationTarotDX()
         text = {
             "Creates up to {C:attention}#1#",
             "random {C:planet}Planet{} {C:dark_edition}DX{} cards",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_dx.c_empress_dx = {
@@ -219,7 +219,7 @@ local function setUpLocalizationTarotDX()
         text = {
             "Creates up to {C:attention}#1#",
             "random {C:tarot}Tarot{} {C:dark_edition}DX{} cards",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_dx.c_heirophant_dx = {
@@ -340,7 +340,7 @@ local function setUpLocalizationTarotDX()
         text = {
             "Creates a random",
             "{C:green}uncommon{} {C:attention}Joker{} card",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_dx.c_world_dx = {
@@ -362,7 +362,7 @@ local function setUpLocalizationTarotCU()
         text = {
             "{C:dark_edition}+1{}消耗牌槽位",
             "生成2张{C:tarot}愚者{}·{C:dark_edition}豪华",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_magician_cu = {
@@ -370,7 +370,7 @@ local function setUpLocalizationTarotCU()
         text = {
             "所有标注出的{C:green}几率{}永久翻倍",
             "生成一张{C:tarot}魔术师{}·{C:dark_edition}豪华",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_high_priestess_cu = {
@@ -379,7 +379,7 @@ local function setUpLocalizationTarotCU()
             "{C:planet}星球牌{}带有{C:dark_edition}闪箔{}、{C:dark_edition}镭射",
             "或{C:dark_edition}多彩{}的几率提升{C:attention}#1#倍",
             "生成至多两张{C:dark_edition}豪华{C:planet}星球牌",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_empress_cu = {
@@ -387,7 +387,7 @@ local function setUpLocalizationTarotCU()
         text = {
             "永久提升{C:attention}#2#{}的加成至{C:red}+#1#{}倍率",
             "生成一张{C:tarot}皇后{}·{C:dark_edition}豪华",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_emperor_cu = {
@@ -404,7 +404,7 @@ local function setUpLocalizationTarotCU()
             "{C:attention}#2#{} bonus to",
             "{C:blue}+#1#{} extra chips. Creates a",
             "copy of {C:tarot}The Hierophant{} {C:dark_edition}DX{}",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_lovers_cu = {
@@ -415,7 +415,7 @@ local function setUpLocalizationTarotCU()
             "{C:inactive}(Drag to rearrange)",
             "Creates a copy of",
             "{C:tarot}The Lovers{} {C:dark_edition}DX{}",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_chariot_cu = {
@@ -423,7 +423,7 @@ local function setUpLocalizationTarotCU()
         text = {
             "永久提升{C:attention}#2#{}的加成至{X:red,C:white} X#1#",
             "生成一张{C:tarot}战车{}·{C:dark_edition}豪华",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_justice_cu = {
@@ -431,7 +431,7 @@ local function setUpLocalizationTarotCU()
         text = {
             "永久提升{C:attention}#2#{}的加成至{X:red,C:white} X#1#",
             "生成一张{C:tarot}正义{}·{C:dark_edition}豪华",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_hermit_cu = {
@@ -471,7 +471,7 @@ local function setUpLocalizationTarotCU()
             "使其全部变为{C:attention}最右侧{}的牌",
             "{C:inactive}（拖动以改变位置）",
             "生成两张{C:tarot}死神{}·{C:dark_edition}豪华",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_temperance_cu = {
@@ -490,7 +490,7 @@ local function setUpLocalizationTarotCU()
             "{C:attention}#2#{} gold gain to",
             "{C:money}$#1#{}. Creates a",
             "copy of {C:tarot}The Devil{} {C:dark_edition}DX{}",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_tower_cu = {
@@ -498,7 +498,7 @@ local function setUpLocalizationTarotCU()
         text = {
             "永久提升{C:attention}#2#{}的加成至{C:blue}+#1#{}筹码",
             "生成一张{C:tarot}塔{}·{C:dark_edition}豪华",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_star_cu = {
@@ -507,7 +507,7 @@ local function setUpLocalizationTarotCU()
             "{V:1}#1#{} cannot",
             "get {C:attention}debuffed{}. Creates a",
             "copy of {C:tarot}The Star{} {C:dark_edition}DX{}",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_moon_cu = {
@@ -515,7 +515,7 @@ local function setUpLocalizationTarotCU()
         text = {
             "{V:1}#1#{}牌永不{C:attention}失效",
             "生成一张{C:tarot}月亮{}·{C:dark_edition}豪华",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_sun_cu = {
@@ -523,7 +523,7 @@ local function setUpLocalizationTarotCU()
         text = {
             "{V:1}#1#{}牌永不{C:attention}失效",
             "生成一张{C:tarot}太阳{}·{C:dark_edition}豪华",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_judgement_cu = {
@@ -531,7 +531,7 @@ local function setUpLocalizationTarotCU()
         text = {
             "随机生成一张",
             "{C:red}稀有{C:attention}小丑牌",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_world_cu = {
@@ -539,7 +539,7 @@ local function setUpLocalizationTarotCU()
         text = {
             "{V:1}#1#{}牌永不{C:attention}失效",
             "生成一张{C:tarot}世界{}·{C:dark_edition}豪华",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }
     }
 end
