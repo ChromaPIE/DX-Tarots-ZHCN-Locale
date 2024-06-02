@@ -435,9 +435,9 @@ local function setUpLocalizationTarotCU()
         }
     }
     G.localization.descriptions.Tarot_cu.c_hermit_cu = {
-        name = "The Cursed Hermit",
+        name = "暗翳隐者",
         text = {
-            "Gives {C:money}$#1#{}"
+            "给予{C:money}$#1#"
         }
     }
     G.localization.descriptions.Tarot_cu.c_wheel_of_fortune_cu = {
