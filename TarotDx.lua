@@ -199,26 +199,25 @@ local function setUpLocalizationTarotDX()
         }
     }
     G.localization.descriptions.Tarot_dx.c_high_priestess_dx = {
-        name = "The High Priestess DX",
+        name = "女祭司·豪华",
         text = {
-            "Creates up to {C:attention}#1#",
-            "random {C:planet}Planet{} {C:dark_edition}DX{} cards",
+            "随机生成至多{C:attention}#1#{}张",
+            "{C:dark_edition}豪华{C:planet}星球牌",
             "{C:inactive}（必须有空位）"
         }
     }
     G.localization.descriptions.Tarot_dx.c_empress_dx = {
-        name = "The Empress DX",
+        name = "皇后·豪华",
         text = {
-            "Enhances {C:attention}#1#",
-            "selected cards to",
-            "{C:attention}#2#s"
+            "将至多{C:attention}#1#{}张选定卡牌",
+            "增强为{C:attention}#2#"
         }
     }
     G.localization.descriptions.Tarot_dx.c_emperor_dx = {
-        name = "The Emperor DX",
+        name = "皇帝·豪华",
         text = {
-            "Creates up to {C:attention}#1#",
-            "random {C:tarot}Tarot{} {C:dark_edition}DX{} cards",
+            "随机生成至多{C:attention}#1#{}张",
+            "{C:dark_edition}豪华{C:tarot}塔罗牌",
             "{C:inactive}（必须有空位）"
         }
     }
@@ -502,11 +501,10 @@ local function setUpLocalizationTarotCU()
         }
     }
     G.localization.descriptions.Tarot_cu.c_star_cu = {
-        name = "The Cursed Star",
+        name = "灼目死星",
         text = {
-            "{V:1}#1#{} cannot",
-            "get {C:attention}debuffed{}. Creates a",
-            "copy of {C:tarot}The Star{} {C:dark_edition}DX{}",
+            "{V:1}#1#{}牌永不{C:attention}失效",
+            "生成一张{C:tarot}星星{}·{C:dark_edition}豪华",
             "{C:inactive}（必须有空位）"
         }
     }
