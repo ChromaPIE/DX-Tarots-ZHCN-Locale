@@ -312,7 +312,7 @@ local function setUpLocalizationTarotDX()
         }
     }
     G.localization.descriptions.Tarot_dx.c_star_dx = {
-        name = "The Star DX",
+        name = "星星·豪华",
         text = {
             "将至多{C:attention}#1#{}张选定卡牌",
             "转换为{V:1}#2#"
@@ -335,10 +335,10 @@ local function setUpLocalizationTarotDX()
         }
     }
     G.localization.descriptions.Tarot_dx.c_judgement_dx = {
-        name = "Judgement DX",
+        name = "审判·豪华",
         text = {
-            "Creates a random",
-            "{C:green}uncommon{} {C:attention}Joker{} card",
+            "随机生成一张",
+            "{C:green}罕见{C:attention}小丑牌",
             "{C:inactive}（必须有空位）"
         }
     }
@@ -397,12 +397,10 @@ local function setUpLocalizationTarotCU()
         }
     }
     G.localization.descriptions.Tarot_cu.c_heirophant_cu = {
-        name = "The Cursed Hierophant",
+        name = "冥国教主",
         text = {
-            "Permanently increases",
-            "{C:attention}#2#{} bonus to",
-            "{C:blue}+#1#{} extra chips. Creates a",
-            "copy of {C:tarot}The Hierophant{} {C:dark_edition}DX{}",
+            "永久提升{C:attention}#2#{}的加成至{C:blue}+#1#{}筹码",
+            "生成一张{C:tarot}教皇{}·{C:dark_edition}豪华",
             "{C:inactive}（必须有空位）"
         }
     }
