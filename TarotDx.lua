@@ -741,34 +741,33 @@ local function setUpLocalizationSpectralDX()
         }
     }
     G.localization.descriptions.Spectral_dx.c_hex_dx = {
-        name = "Hex DX",
+        name = "妖法·豪华",
         text = {
-            "Add {C:dark_edition}Polychrome{} to a",
-            "random {C:attention}Joker{}"
+            "为随机一张{C:attention}小丑牌",
+            "添加{C:dark_edition}多彩"
         }
     }
     G.localization.descriptions.Spectral_dx.c_trance_dx = {
-        name = "Trance DX",
+        name = "入迷·豪华",
         text = {
-            "Add a {C:blue}Blue Seal{}",
-            "to up to {C:attention}3{} selected",
-            "cards in your hand"
+            "为手牌中至多{C:attention}3{}张",
+            "选定的卡牌",
+            "打上{C:blue}蓝色蜡封"
         }
     }
     G.localization.descriptions.Spectral_dx.c_medium_dx = {
-        name = "Medium DX",
+        name = "介质·豪华",
         text = {
-            "Add a {C:purple}Purple Seal{}",
-            "to up to {C:attention}3{} selected",
-            "cards in your hand"
+            "为手牌中至多{C:attention}3{}张",
+            "选定的卡牌",
+            "打上{C:purple}紫色蜡封"
         }
     }
     G.localization.descriptions.Spectral_dx.c_cryptid_dx = {
-        name = "Cryptid DX",
+        name = "神秘生物·豪华",
         text = {
-            "Create {C:attention}#1#{} copies of",
-            "{C:attention}1{} selected card",
-            "in your hand"
+            "为所选定的{C:attention}1{}张手牌",
+                    "生成{C:attention}#1#{}张复制"
         }
     }
     G.localization.descriptions.Spectral_dx.c_soul_dx = {
