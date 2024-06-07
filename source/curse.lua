@@ -130,11 +130,11 @@ local function setUpLocalizationCurses()
             }
         },
         cu_fish = {
-            name = "The Fish",
+            name = "鱼",
             text = {
-                "Cards drawn after playing a",
-                "hand have a {C:attention}#1# in #2# chance{} of",
-                "being {C:attention}drawn face down{}",
+                "出牌后所抽的牌",
+                "有{C:attention}#1#/#2#的几率",
+                "{C:attention}背面朝上",
                 "{C:inactive}（几率不会变动）"
             }
         },
@@ -161,20 +161,18 @@ local function setUpLocalizationCurses()
             }
         },
         cu_pillar = {
-            name = "The Pillar",
+            name = "支柱",
             text = {
-                "Cards played this Ante",
-                "have a {C:attention}#1# in #2# chance{}",
-                " of being {C:attention}debuffed{}",
+                "本底注内出过的牌",
+                "有{C:attention}#1#/#2#{}的几率{C:attention}失效",
                 "{C:inactive}（几率不会变动）"
             }
         },
         cu_flint = {
-            name = "The Flint",
+            name = "燧石",
             text = {
-                "Base {C:blue}Chips{} and",
-                "{C:red}Mult{} are reduced",
-                "by {C:attention}#1#%{}"
+                "基础{C:blue}筹码{}和{C:red}倍率",
+                "削减{C:attention}#1#%"
             }
         },
         cu_mark = {
