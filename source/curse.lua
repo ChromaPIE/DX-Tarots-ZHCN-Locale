@@ -56,12 +56,12 @@ local function setUpLocalizationCurses()
             }
         },
         cu_eye = {
-            name = "The Eye",
+            name = "眼睛",
             text = {
-                "{X:red,C:white} X#1# {} Mult if hand type",
-                "was already played",
-                "this round",
-                "{C:attention}#2#{}"
+                "当前回合内",
+                "若重复打出牌型",
+                "{X:red,C:white} X#1# {}倍率",
+                "{C:attention}#2#"
             }
         },
         cu_mouth = {
@@ -87,29 +87,28 @@ local function setUpLocalizationCurses()
             }
         },
         cu_head = {
-            name = "The Head",
+            name = "头",
             text = {
-                "{C:attention}#1# in #2# chance{} for",
-                "each {C:hearts}Heart{} card to",
-                "be {C:attention}debuffed{}",
+                "每张{C:hearts}红桃{}牌",
+                "均有{C:attention}#1#/#2#{}的几率{C:attention}失效",
                 "{C:inactive}（几率不会变动）"
             }
         },
         cu_tooth = {
-            name = "The Tooth",
+            name = "牙齿",
             text = {
-                "{C:attention}#1# in #2# chance{} to",
-                "lose {C:money}$1{} for",
-                "each card played",
+                "每张打出的牌",
+                "均有{C:attention}#1#/#2#{}的几率",
+                "使你损失{C:money}$1",
                 "{C:inactive}（几率不会变动）"
             }
         },
         cu_ox = {
             name = "The Ox",
             text = {
-                "Lose {C:money}$#1#{} if played",
-                "hand is a {C:attention}#2#{}",
-                "{C:inactive}(Updated each Ante){}"
+                "若出牌牌型为{C:attention}#2#",
+                "失去{C:money}$#1#",
+                "{C:inactive}（每个底注变动牌型）"
             }
         },
         cu_house = {

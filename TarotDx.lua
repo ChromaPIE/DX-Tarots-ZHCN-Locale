@@ -405,13 +405,12 @@ local function setUpLocalizationTarotCU()
         }
     }
     G.localization.descriptions.Tarot_cu.c_lovers_cu = {
-        name = "The Cursed Lovers",
+        name = "殉情虐恋",
         text = {
-            "{C:attention}#1#s{} now copy the",
-            "rank of the card to their {C:attention}left{}",
-            "{C:inactive}(Drag to rearrange)",
-            "Creates a copy of",
-            "{C:tarot}The Lovers{} {C:dark_edition}DX{}",
+            "{C:attention}#1#{}将复制",
+            "其{C:attention}左侧{}卡牌的点数",
+            "{C:inactive}（拖动以改变位置）",
+            "生成一张{C:tarot}恋人{}·{C:dark_edition}豪华",
             "{C:inactive}（必须有空位）"
         }
     }
