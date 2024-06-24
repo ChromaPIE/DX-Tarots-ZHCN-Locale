@@ -2906,9 +2906,9 @@ local function overrides()
                     self:juice_up()
                 return true end }))
                 ease_dollars(-self.cost) 
-        else
-            delay(0.2)
-        end
+            else
+                delay(0.2)
+            end
 
         G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
             self:explode()
@@ -2973,6 +2973,7 @@ local function overrides()
                         local edition = poll_edition('standard_edition'..G.GAME.round_resets.ante, edition_rate, true)
                         card:set_edition(edition)
                     elseif self.ability.name:find('Alchemy') then
+                        G.ARGS.is_alchemical_booster = true
                         card = create_card(dx_modifier and "Alchemical_dx" or "Alchemical", G.pack_cards, nil, nil, true, true, nil, 'alc')
                     end
                     card.T.x = self.T.x
