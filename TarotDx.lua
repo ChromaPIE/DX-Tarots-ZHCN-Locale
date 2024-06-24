@@ -928,7 +928,7 @@ local function loadCursesModule()
     local js_mod = SMODS.findModByID("JeffDeluxeConsumablesPack")
 
     -- Load modules
-    assert(load(love.filesystem.read(js_mod.path .. "source/curse.lua")))()
+    assert(load(NFS.read(js_mod.path .. "source/curse.lua")))()
     
     -- Add curses
     setup_curses()
@@ -1295,6 +1295,18 @@ local function overrides()
                                 card:juice_up(0.8, 0.5)
                                 return true end }))
                             update_hand_text({delay = 0}, {mult = 'x' .. tostring(G.P_CENTERS.e_polychrome.config.extra), StatusText = true})
+                            delay(1.3)
+                        end
+                    end
+                    -- Bunco Glitter compat
+                    if SMODS.Mods and SMODS.Mods['Bunco'] and card.edition.bunc_glitter then
+                        G.GAME.hands[hand].chips = math.floor(math.max(G.GAME.hands[hand].chips * G.P_CENTERS.e_bunc_glitter.config.Xchips, 1))
+                        if not instant then
+                            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                                play_sound('bunc_glitter')
+                                card:juice_up(0.8, 0.5)
+                                return true end }))
+                            update_hand_text({delay = 0}, {chips = 'x' .. tostring(G.P_CENTERS.e_bunc_glitter.config.Xchips), StatusText = true})
                             delay(1.3)
                         end
                     end
