@@ -11,9 +11,10 @@
 -- SET CUSTOM CONFIG HERE
 
 local tarot_dx_rate = 0.1               -- (from 0 (0%) to 1 (100%))
-local tarot_cu_rate = 0.06              -- (from 0 (0%) to 1 (100%))
+local tarot_cu_rate = 0.07              -- (from 0 (0%) to 1 (100%))
 local planet_dx_rate = 0.12             -- (from 0 (0%) to 1 (100%))
 local spectral_dx_rate = 0.15           -- (from 0 (0%) to 1 (100%))
+local alchemical_dx_rate = 0.1          -- (from 0 (0%) to 1 (100%))
 local booster_dx_rate = 0.1             -- (from 0 (0%) to 1 (100%))
 local planet_edition_enabled = true     -- Enable/Disable the possibility of planet cards edition (may not be compatible with other mods that overwrite the level_up_hand function)
 local spectral_on_blank = true          -- Enable/Disable spectral rate on blank voucher
@@ -934,6 +935,19 @@ local function loadCursesModule()
     setup_curses()
 end
 
+local function loadCodexArcanumModule()
+
+    if SMODS.findModByID("CodexArcanum") then
+        local js_mod = SMODS.findModByID("JeffDeluxeConsumablesPack")
+
+        -- Load modules
+        assert(load(NFS.read(js_mod.path .. "source/alchemical_dx.lua")))()
+        
+        -- Add new dx stuff
+        CodexArcanum.LoadDX()
+    end
+end
+
 ---------- mod init ----------
 
 local function overrides()
@@ -1028,6 +1042,32 @@ local function overrides()
             end
         end
     end
+        
+    ---------- misc_functions ----------
+
+    -- Manage consumable usage
+    local set_consumeable_usage_ref = set_consumeable_usage
+    function set_consumeable_usage(card)
+
+        set_consumeable_usage_ref(card)
+
+        -- Last consumable used, set it to vanilla version
+        if card.config.center_key and card.ability.consumeable and (card.config.center.set == 'Tarot' or card.config.center.set == 'Planet') and (card.ability.type == '_dx' or card.ability.type == '_cu') then 
+            G.E_MANAGER:add_event(Event({
+                trigger = 'immediate',
+                func = function()
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'immediate',
+                    func = function()
+                    G.GAME.last_tarot_planet = string.sub(card.config.center_key, 1, -4)
+                        return true
+                    end
+                }))
+                    return true
+                end
+            }))
+        end
+    end
 
     ---------- button_callbacks ----------
 
@@ -1074,7 +1114,7 @@ local function overrides()
                         else
                             add = true
                         end
-                        if v.name == 'Black Hole DX' or v.name == 'The Soul DX' then
+                        if v.name == 'Black Hole DX' or v.name == 'The Soul DX' or v.name == "Philosopher's Stone DX" then
                             add = false
                         end
                     end
@@ -1136,7 +1176,8 @@ local function overrides()
             if ((new_type == 'Tarot') or (new_type == 'Tarot_dx')) and (pseudorandom('upgrade_card'..G.GAME.round_resets.ante) > math.min(1, math.max(0, 1 - tarot_cu_rate))) then new_type = "Tarot_cu" end
             if new_type == 'Planet' and (pseudorandom('upgrade_card'..G.GAME.round_resets.ante) > math.min(1, math.max(0, 1 - planet_dx_rate))) then new_type = "Planet_dx" end
             if new_type == 'Spectral' and (pseudorandom('upgrade_card'..G.GAME.round_resets.ante) > math.min(1, math.max(0, 1 - spectral_dx_rate))) then new_type = "Spectral_dx" end
-            
+            if new_type == 'Alchemical' and (pseudorandom('upgrade_card'..G.GAME.round_resets.ante) > math.min(1, math.max(0, 1 - alchemical_dx_rate))) then new_type = "Alchemical_dx" end
+
             -- If type is set to DX, need to manage soulable option
             if soulable and (not G.GAME.banned_keys['c_soul']) then
                 if (new_type == 'Tarot_dx' or new_type == 'Spectral_dx') and
@@ -1149,6 +1190,12 @@ local function overrides()
                 not (G.GAME.used_jokers['c_black_hole_dx'] and not next(find_joker("Showman")))  then 
                     if pseudorandom('soul_'.._type..G.GAME.round_resets.ante) > 0.997 then
                         new_forced_key = 'c_black_hole_dx'
+                    end
+                end
+                if (new_type == 'Alchemical_dx' or new_type == 'Spectral_dx') and
+                not (G.GAME.used_jokers['c_philosopher_stone_dx'] and not next(find_joker("Showman")))  then
+                    if pseudorandom('soul_'.._type..G.GAME.round_resets.ante) > 0.997 then
+                        new_forced_key = 'c_philosopher_stone_dx'
                     end
                 end
             end
@@ -1355,7 +1402,7 @@ local function overrides()
             end
         end
 
-        if _c.config and (_c.config.type == '_dx' or _c.config.type == '_cu') then    -- Overwrite
+        if _c.config and (_c.config.type == '_dx' or _c.config.type == '_cu') and (_c.atlas == 'Van_dx' or _c.atlas == 'Van_cu' or _c.atlas == 'Van_Booster_dx') then    -- Overwrite
 
             -- Just copy-paste for now... TODO
             if first_pass then 
@@ -1671,6 +1718,7 @@ local function overrides()
             -- Add extra badges info
             if first_pass and badges then
                 for k, v in ipairs(badges) do
+                    if v == 'dx' then info_queue[#info_queue+1] = {key = 'dx', set = 'Other'} end
                     if v == 'unique' then info_queue[#info_queue+1] = {key = 'unique', set = 'Other'} end
                 end
                 for _, v in ipairs(info_queue) do
@@ -1777,7 +1825,7 @@ local function overrides()
     -- Manage usage of DX consumables
     local card_use_consumeable_ref = Card.use_consumeable
     function Card.use_consumeable(self, area, copier)
-        if self.ability.type == '_dx' then  -- Manage DX
+        if self.ability.type == '_dx' and self.config.center and self.config.center.atlas == 'Van_dx' then  -- Manage DX
             stop_use()
             if not copier then set_consumeable_usage(self) end
             if self.debuff then return nil end
@@ -2282,7 +2330,7 @@ local function overrides()
             end
             update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
 
-        elseif self.ability.type == '_cu' then      -- Manage curses
+        elseif self.ability.type == '_cu' and self.config.center and self.config.center.atlas == 'Van_cu' then      -- Manage curses
             stop_use()
             if not copier then set_consumeable_usage(self) end
             if self.debuff then return nil end
@@ -2733,7 +2781,7 @@ local function overrides()
     local card_can_use_consumeable_ref = Card.can_use_consumeable
     function Card.can_use_consumeable(self, any_state, skip_check)
 
-        if self.ability.type == '_dx' or self.ability.type == '_cu' then
+        if (self.ability.type == '_dx' or self.ability.type == '_cu') and (self.config.center and (self.config.center.atlas == 'Van_dx' or self.config.center.atlas == 'Van_cu')) then
 
             if not skip_check and ((G.play and #G.play.cards > 0) or
                 (G.CONTROLLER.locked) or
@@ -2845,6 +2893,9 @@ local function overrides()
             elseif self.ability.name:find('Buffoon') then
                 G.STATE = G.STATES.BUFFOON_PACK
                 G.GAME.pack_size = self.ability.extra
+            elseif self.ability.name:find('Alchemy') then
+                G.STATE = G.STATES.BUFFOON_PACK
+                G.GAME.pack_size = self.ability.extra
             end
 
             G.GAME.pack_choices = self.config.center.config.choose or 1
@@ -2859,99 +2910,104 @@ local function overrides()
             delay(0.2)
         end
 
-            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
-                self:explode()
-                local pack_cards = {}
+        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+            self:explode()
+            local pack_cards = {}
 
-                G.E_MANAGER:add_event(Event({trigger = 'after', delay = 1.3*math.sqrt(G.SETTINGS.GAMESPEED), blockable = false, blocking = false, func = function()
-                    local _size = self.ability.extra
-                    
-                    for i = 1, _size do
-                        local card = nil
+            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 1.3*math.sqrt(G.SETTINGS.GAMESPEED), blockable = false, blocking = false, func = function()
+                local _size = self.ability.extra
+                
+                for i = 1, _size do
+                    local card = nil
 
-                        -- Add an increased chance for dx card
-                        local dx_modifier = pseudorandom(pseudoseed('force_dx'..G.GAME.round_resets.ante)) > 0.30
+                    -- Add an increased chance for dx card
+                    local dx_modifier = pseudorandom(pseudoseed('force_dx'..G.GAME.round_resets.ante)) > 0.35
 
-                        if self.ability.name:find('Arcana') then 
-                            if G.GAME.used_vouchers.v_omen_globe and pseudorandom('omen_globe') > 0.8 then
-                                card = create_card(dx_modifier and "Spectral_dx" or "Spectral", G.pack_cards, nil, nil, true, true, nil, 'ar2')
-                            else
-                                card = create_card(dx_modifier and "Tarot_dx" or "Tarot", G.pack_cards, nil, nil, true, true, nil, 'ar1')
-                            end
-                        elseif self.ability.name:find('Celestial') then
-                            if G.GAME.used_vouchers.v_telescope and i == 1 then
-                                local _planet, _hand, _tally = nil, nil, 0
-                                for k, v in ipairs(G.handlist) do
-                                    if G.GAME.hands[v].visible and G.GAME.hands[v].played > _tally then
-                                        _hand = v
-                                        _tally = G.GAME.hands[v].played
-                                    end
-                                end
-                                if _hand then
-                                    for k, v in pairs(G.P_CENTER_POOLS.Planet) do
-                                        if v.config.hand_type == _hand then
-                                            _planet = v.key
-                                        end
-                                    end
-                                end
-                                card = create_card("Planet", G.pack_cards, nil, nil, true, true, _planet, 'pl1')
-                            else
-                                card = create_card(dx_modifier and "Planet_dx" or "Planet", G.pack_cards, nil, nil, true, true, nil, 'pl1')
-                            end
-                        elseif self.ability.name:find('Spectral') then
-                            card = create_card(dx_modifier and "Spectral_dx" or "Spectral", G.pack_cards, nil, nil, true, true, nil, 'spe')
-                        elseif self.ability.name:find('Standard') then
-                            card = create_card((pseudorandom(pseudoseed('stdset'..G.GAME.round_resets.ante)) > (dx_modifier and 0.3 or 0.6)) and "Enhanced" or "Base", G.pack_cards, nil, nil, nil, true, nil, 'sta')
-                            local edition_rate = dx_modifier and 4 or 2
-                            local edition = poll_edition('standard_edition'..G.GAME.round_resets.ante, edition_rate, true)
-                            card:set_edition(edition)
-                            local seal_rate = dx_modifier and 20 or 10
-                            local seal_poll = pseudorandom(pseudoseed('stdseal'..G.GAME.round_resets.ante))
-                            if seal_poll > 1 - 0.02*seal_rate then
-                                local seal_type = pseudorandom(pseudoseed('stdsealtype'..G.GAME.round_resets.ante))
-                                if seal_type > 0.75 then card:set_seal('Red')
-                                elseif seal_type > 0.5 then card:set_seal('Blue')
-                                elseif seal_type > 0.25 then card:set_seal('Gold')
-                                else card:set_seal('Purple')
-                                end
-                            end
-                        elseif self.ability.name:find('Buffoon') then
-                            local rarity = pseudorandom('rarity'..G.GAME.round_resets.ante..(_append or '')) + (dx_modifier and 0.3 or 0)
-                            card = create_card("Joker", G.pack_cards, nil, rarity, true, true, nil, 'buf')
+                    if self.ability.name:find('Arcana') then 
+                        if G.GAME.used_vouchers.v_omen_globe and pseudorandom('omen_globe') > 0.8 then
+                            card = create_card(dx_modifier and "Spectral_dx" or "Spectral", G.pack_cards, nil, nil, true, true, nil, 'ar2')
+                        else
+                            card = create_card(dx_modifier and "Tarot_dx" or "Tarot", G.pack_cards, nil, nil, true, true, nil, 'ar1')
                         end
-                        card.T.x = self.T.x
-                        card.T.y = self.T.y
-                        card:start_materialize({G.C.WHITE, G.C.WHITE}, nil, 1.5*G.SETTINGS.GAMESPEED)
-                        pack_cards[i] = card
+                    elseif self.ability.name:find('Celestial') then
+                        if G.GAME.used_vouchers.v_telescope and i == 1 then
+                            local _planet, _hand, _tally = nil, nil, 0
+                            for k, v in ipairs(G.handlist) do
+                                if G.GAME.hands[v].visible and G.GAME.hands[v].played > _tally then
+                                    _hand = v
+                                    _tally = G.GAME.hands[v].played
+                                end
+                            end
+                            if _hand then
+                                for k, v in pairs(G.P_CENTER_POOLS.Planet) do
+                                    if v.config.hand_type == _hand then
+                                        _planet = v.key
+                                    end
+                                end
+                            end
+                            card = create_card("Planet", G.pack_cards, nil, nil, true, true, _planet, 'pl1')
+                        else
+                            card = create_card(dx_modifier and "Planet_dx" or "Planet", G.pack_cards, nil, nil, true, true, nil, 'pl1')
+                        end
+                    elseif self.ability.name:find('Spectral') then
+                        card = create_card(dx_modifier and "Spectral_dx" or "Spectral", G.pack_cards, nil, nil, true, true, nil, 'spe')
+                    elseif self.ability.name:find('Standard') then
+                        card = create_card("Enhanced", G.pack_cards, nil, nil, nil, true, nil, 'sta')
+                        local edition_rate = dx_modifier and 6 or 3
+                        local edition = poll_edition('standard_edition'..G.GAME.round_resets.ante, edition_rate, true)
+                        card:set_edition(edition)
+                        local seal_rate = dx_modifier and 30 or 15
+                        local seal_poll = pseudorandom(pseudoseed('stdseal'..G.GAME.round_resets.ante))
+                        if seal_poll > 1 - 0.02*seal_rate then
+                            local seal_type = pseudorandom(pseudoseed('stdsealtype'..G.GAME.round_resets.ante))
+                            if seal_type > 0.75 then card:set_seal('Red')
+                            elseif seal_type > 0.5 then card:set_seal('Blue')
+                            elseif seal_type > 0.25 then card:set_seal('Gold')
+                            else card:set_seal('Purple')
+                            end
+                        end
+                    elseif self.ability.name:find('Buffoon') then
+                        local rarity = pseudorandom('rarity'..G.GAME.round_resets.ante..(_append or '')) + (dx_modifier and 0.3 or 0)
+                        card = create_card("Joker", G.pack_cards, nil, rarity, true, true, nil, 'buf')
+                        local edition_rate = dx_modifier and 3 or 1.5
+                        local edition = poll_edition('standard_edition'..G.GAME.round_resets.ante, edition_rate, true)
+                        card:set_edition(edition)
+                    elseif self.ability.name:find('Alchemy') then
+                        card = create_card(dx_modifier and "Alchemical_dx" or "Alchemical", G.pack_cards, nil, nil, true, true, nil, 'alc')
+                    end
+                    card.T.x = self.T.x
+                    card.T.y = self.T.y
+                    card:start_materialize({G.C.WHITE, G.C.WHITE}, nil, 1.5*G.SETTINGS.GAMESPEED)
+                    pack_cards[i] = card
+                end
+                return true
+            end}))
+
+            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 1.3*math.sqrt(G.SETTINGS.GAMESPEED), blockable = false, blocking = false, func = function()
+                if G.pack_cards then 
+                    if G.pack_cards and G.pack_cards.VT.y < G.ROOM.T.h then 
+                    for k, v in ipairs(pack_cards) do
+                        G.pack_cards:emplace(v)
                     end
                     return true
-                end}))
-
-                G.E_MANAGER:add_event(Event({trigger = 'after', delay = 1.3*math.sqrt(G.SETTINGS.GAMESPEED), blockable = false, blocking = false, func = function()
-                    if G.pack_cards then 
-                        if G.pack_cards and G.pack_cards.VT.y < G.ROOM.T.h then 
-                        for k, v in ipairs(pack_cards) do
-                            G.pack_cards:emplace(v)
-                        end
-                        return true
-                        end
                     end
-                end}))
-
-                for i = 1, #G.jokers.cards do
-                    G.jokers.cards[i]:calculate_joker({open_booster = true, card = self})
                 end
+            end}))
 
-                if G.GAME.modifiers.inflation then 
-                    G.GAME.inflation = G.GAME.inflation + 1
-                    G.E_MANAGER:add_event(Event({func = function()
-                    for k, v in pairs(G.I.CARD) do
-                        if v.set_cost then v:set_cost() end
-                    end
-                    return true end }))
+            for i = 1, #G.jokers.cards do
+                G.jokers.cards[i]:calculate_joker({open_booster = true, card = self})
+            end
+
+            if G.GAME.modifiers.inflation then 
+                G.GAME.inflation = G.GAME.inflation + 1
+                G.E_MANAGER:add_event(Event({func = function()
+                for k, v in pairs(G.I.CARD) do
+                    if v.set_cost then v:set_cost() end
                 end
+                return true end }))
+            end
 
-            return true end }))
+        return true end }))
         else
             card_open_ref(self)
         end
@@ -3414,6 +3470,9 @@ function SMODS.INIT.JeffDeluxeConsumablesPack()
     -------------------------------
     ---------- OVERRIDES ----------
     -------------------------------
+
+    -- ORDER IS IMPORTANT !!!
+    loadCodexArcanumModule()
 
     overrides()
 
