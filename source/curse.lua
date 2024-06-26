@@ -1,5 +1,7 @@
 local function setUpLocalizationCurses()
 
+    LC = "驱散条件"
+
     G.localization.descriptions.Curse = {
         cu_hook = {
             name = "钩子",
@@ -184,198 +186,195 @@ local function setUpLocalizationCurses()
             }
         },
         cu_final_vessel = {
-            name = "Violet Vessel",
+            name = "靛紫之杯",
             text = {
-                "Increase Blind size by {C:attention}#1#%{}",
-                "Getting a {X:black,C:white}curse{} will {C:attention}increase{} this",
-                "amount instead of applying a new {X:black,C:white}curse{}",
-                "{C:inactive}(Currently: #2#){}"
+                "忙住最低分数要求提升{C:attention}#1#%",
+                "遭受的{X:black,C:white}诅咒{}将被免除",
+                "转而进一步{C:attention}增加{}上述的提升比例",
+                "{C:inactive}（当前为#2#）"
             }
         },
     }
 
     G.localization.descriptions.CurseLiftCondition = {
         cu_hook = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Discard {C:red}#1#{} cards",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "弃掉{C:red}#1#{}张牌",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_wall = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Score more than",
-                "{C:attention}150%{} of blind size",
-                "{C:attention}#1#{} times",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "以至少{C:attention}150%{}于",
+                "最低要求的分数",
+                "击败{C:attention}#1#{}个盲注",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_wheel = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Play {C:blue}#1#{} hands",
-                "containing at least",
-                "3 {C:attention}face down{} cards",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "{C:blue}#1#{}次出牌至少包含",
+                "{C:attention}3{}张{C:attention}背面朝上{}的卡牌",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_arm = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Play {C:attention}#1# levels{} worth",
-                "of poker hands",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "出牌牌型等级累计{C:attention}#1#",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_psychic = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Play {C:blue}#1#{} hands",
-                "containing {C:attention}5 cards{}",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "{C:blue}#1#{}次出牌均包含",
+                "{C:attention}5{}张牌",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_goad = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Play {C:blue}#1#{} hands with",
-                "no scoring {C:spades}Spade{} card",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "{C:blue}#1#{}次出牌均不包含",
+                "计分的{C:spades}黑桃{}牌",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_water = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Defeat {C:attention}#1#{} blinds without",
-                "using any discard",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "击败{C:attention}#1#{}个盲注",
+                "且不弃牌",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_eye = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Defeat {C:attention}#1#{} blinds without",
-                "playing any repeated hand",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "击败{C:attention}#1#{}个盲注",
+                "且不打出重复牌型",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_mouth = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Defeat {C:attention}#1#{} blinds with",
-                "only one played hand",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "仅用一次出牌",
+                "击败{C:attention}#1#{}个盲注",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_plant = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Play {C:blue}#1#{} hands with",
-                "no scoring {C:attention}face{} card",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "{C:blue}#1#{}次出牌均不包含",
+                "计分的{C:attention}人头牌",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_needle = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Defeat {C:attention}#1#{} blinds without",
-                "any hand remaining",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "耗尽出牌次数",
+                "击败{C:attention}#1#{}个盲注",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_head = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Play {C:blue}#1#{} hands with",
-                "no scoring {C:hearts}Heart{} card",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "{C:blue}#1#{}次出牌均不包含",
+                "计分的{C:hearts}红桃{}牌",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_tooth = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Play {C:blue}#1#{} cards",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "打出{C:blue}#1#{}张牌",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_ox = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Defeat {C:attention}#1#{} blinds without",
-                "triggering this curse",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "在不触发此诅咒的情况下",
+                "击败{C:attention}#1#{}个盲注",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_house = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Play {C:blue}#1#{}",
-                "face down cards",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "打出{C:blue}#1#{}张",
+                "背面朝上的牌",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_club = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Play {C:blue}#1#{} hands with",
-                "no scoring {C:clubs}Club{} card",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "{C:blue}#1#{}次出牌均不包含",
+                "计分的{C:clubs}梅花{}牌",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_fish = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Discard {C:red}#1#{}",
-                "face down cards",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "弃掉{C:blue}#1#{}张",
+                "背面朝上的牌",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_window = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Play {C:attention}#1#{} hands with",
-                "no scoring {C:diamonds}Diamond{} card",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "{C:blue}#1#{}次出牌均不包含",
+                "计分的{C:diamonds}方片{}牌",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_manacle = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Play {C:blue}#1#{} hands with",
-                "{C:attention}5 scoring cards{}",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "{C:blue}#1#{}次出牌均包含",
+                "{C:attention}5{}张{C:attention}计分{}牌",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_serpent = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Draw {C:attention}#1#{} cards",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "抽{C:attention}#1#{}张牌",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_pillar = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Play {C:blue}#1#{} hands with",
-                "{C:attention}5 debuffed scoring cards{}",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "{C:blue}#1#{}次出牌均包含",
+                "{C:attention}5{}张{C:attention}失效{}牌",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_flint = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Play {C:blue}#1#{} hands",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "出牌{C:blue}#1#{}次",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
         cu_mark = {
-            name = "Lift condition",
+            name = LC,
             text = {
-                "Discard {C:red}#1#{} hands",
-                "containing at least",
-                "{C:attention}3 face down{} cards",
-                "{C:inactive}(Progress: #2#/#1#){}"
+                "{C:red}#1#{}次弃牌至少包含",
+                "{C:attention}3{}张{C:attention}背面朝上{}的卡牌",
+                "{C:inactive}（进度：#2#/#1#）"
             }
         },
     }
