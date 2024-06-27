@@ -2971,7 +2971,9 @@ local function overrides()
                         card = create_card("Joker", G.pack_cards, nil, rarity, true, true, nil, 'buf')
                         local edition_rate = dx_modifier and 3 or 1.5
                         local edition = poll_edition('standard_edition'..G.GAME.round_resets.ante, edition_rate, true)
-                        card:set_edition(edition)
+                        if not card.edition then
+                            card:set_edition(edition)
+                        end
                     elseif self.ability.name:find('Alchemy') then
                         G.ARGS.is_alchemical_booster = true
                         card = create_card(dx_modifier and "Alchemical_dx" or "Alchemical", G.pack_cards, nil, nil, true, true, nil, 'alc')
