@@ -1347,7 +1347,7 @@ local function overrides()
                     end
                     -- Bunco Glitter compat
                     if SMODS.Mods and SMODS.Mods['Bunco'] and card.edition.bunc_glitter then
-                        G.GAME.hands[hand].chips = math.floor(math.max(G.GAME.hands[hand].chips * G.P_CENTERS.e_bunc_glitter.config.Xchips, 1))
+                        G.GAME.hands[hand].chips = math.floor(math.max(G.GAME.hands[hand].chips * G.P_CENTERS.e_bunc_glitter.config.Xchips, 0))
                         if not instant then
                             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
                                 play_sound('bunc_glitter')
@@ -1356,6 +1356,114 @@ local function overrides()
                             update_hand_text({delay = 0}, {chips = 'x' .. tostring(G.P_CENTERS.e_bunc_glitter.config.Xchips), StatusText = true})
                             delay(1.3)
                         end
+                    end
+                    -- Cryptid Mosaic compat
+                    if SMODS.Mods and SMODS.Mods['Cryptid'] and card.edition.cry_mosaic then
+                        G.GAME.hands[hand].chips = math.floor(math.max(G.GAME.hands[hand].chips * G.P_CENTERS.e_cry_mosaic.config.Xchips, 0))
+                        if not instant then
+                            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                                play_sound('cry_e_mosaic')
+                                card:juice_up(0.8, 0.5)
+                                return true end }))
+                            update_hand_text({delay = 0}, {chips = 'x' .. tostring(G.P_CENTERS.e_cry_mosaic.config.Xchips), StatusText = true})
+                            delay(1.3)
+                        end
+                    end
+                    -- Cryptid Oversaturated compat
+                    if SMODS.Mods and SMODS.Mods['Cryptid'] and card.edition.cry_oversat then
+                        G.GAME.hands[hand].chips = math.floor(math.max(G.GAME.hands[hand].chips * 2, 0))
+                        G.GAME.hands[hand].mult = math.floor(math.max(G.GAME.hands[hand].mult * 2, 1))
+                        if not instant then
+                            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                                play_sound('cry_e_oversaturated')
+                                card:juice_up(0.8, 0.5)
+                                return true end }))
+                            update_hand_text({delay = 0}, {chips = 'x2', StatusText = true})
+                            update_hand_text({delay = 0}, {mult = 'x2', StatusText = true})
+                            delay(1.3)
+                        end
+                    end
+                    -- Cryptid Glitched compat
+                    if SMODS.Mods and SMODS.Mods['Cryptid'] and card.edition.cry_glitched then
+
+                        local bad = (love.math.random(1, 10) / 100)
+                        local gud = (love.math.random(11, 100) / 100)
+                        local hellno = love.math.random() < 1 / 3
+
+                        G.GAME.hands[hand].chips = math.floor(math.max(G.GAME.hands[hand].chips * ((hellno and bad) or gud), 0))
+                        G.GAME.hands[hand].mult = math.floor(math.max(G.GAME.hands[hand].mult * ((hellno and bad) or gud), 1))
+
+                        if not instant then
+                            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                                play_sound('cry_e_glitched')
+                                card:juice_up(0.8, 0.5)
+                                return true end }))
+                            update_hand_text({ delay = 0 }, { chips = 'x' .. ((hellno and tostring(bad)) or gud), StatusText = true })
+                            update_hand_text({ delay = 0 }, { mult = 'x' .. ((hellno and tostring(bad)) or gud), StatusText = true })
+                            delay(2.6)
+                        end
+
+                        --[[ Some bizarre ideas. but well let's just follow Cryptid's design.
+                        function RollGlitch(chips, mult, seed)
+                            local GlitchT = {
+                                math.max(mult + G.P_CENTERS.e_holo.config.extra, 1),
+                                math.max(chips + G.P_CENTERS.e_foil.config.extra, 0),
+                                math.floor(math.max(mult * G.P_CENTERS.e_polychrome.config.extra, 1)),
+                                math.floor(math.max(chips * G.P_CENTERS.e_bunc_glitter.config.Xchips, 0)),
+                                math.floor(math.max(chips * 2, 0)),
+                                math.floor(math.max(mult * 2, 1)),
+                                math.floor(math.max(chips * G.P_CENTERS.e_cry_mosaic.config.Xchips, 0))
+                            }
+                            local o = pseudorandom_element(GlitchT, pseudoseed(seed))
+                            return o
+                        end
+                        local glc = RollGlitch(G.GAME.hands[hand].chips, G.GAME.hands[hand].mult, tostring(G.GAME.hands[hand].chips))
+                        local glm = RollGlitch(G.GAME.hands[hand].chips, G.GAME.hands[hand].mult, tostring(G.GAME.hands[hand].mult))
+                        local super_glitched = love.math.random() < 1/18
+                        local is_X = love.math.random() < 1/5
+                        if super_glitched and is_X then
+                            G.GAME.hands[hand].chips = love.math.random(20, 10000)
+                            G.GAME.hands[hand].mult = love.math.random(2, 1000)
+                        elseif super_glitched then
+                            G.GAME.hands[hand].chips = glc
+                            G.GAME.hands[hand].mult = glm
+                        elseif is_X then
+                            G.GAME.hands[hand].chips = math.floor(math.max(G.GAME.hands[hand].chips * love.math.random(1, 4)), 0)
+                            G.GAME.hands[hand].mult = math.floor(math.max(G.GAME.hands[hand].mult * love.math.random(1, 4)), 1)
+                        else
+                            G.GAME.hands[hand].chips = math.max(G.GAME.hands[hand].chips + love.math.random(40, 200), 0)
+                            G.GAME.hands[hand].mult = math.max(G.GAME.hands[hand].mult + love.math.random(2, 10), 1)
+                        end
+                        if not instant then
+                            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                                play_sound('cry_e_glitched')
+                                card:juice_up(0.8, 0.5)
+                                return true end }))
+                            if super_glitched and is_X then
+                                update_hand_text({delay = 0}, {chips = 'RDM', StatusText = true})
+                                update_hand_text({delay = 0}, {mult = 'RDM', StatusText = true})
+                                delay(2.0)
+                            elseif super_glitched then
+                                update_hand_text({delay = 0}, {chips = '?X?', StatusText = true})
+                                update_hand_text({delay = 0}, {mult = '*+~', StatusText = true})
+                                delay(0.9)
+                                update_hand_text({delay = 0}, {chips = 'ERR', StatusText = true})
+                                update_hand_text({delay = 0}, {mult = 'ERR', StatusText = true})
+                                delay(0.9)
+                                update_hand_text({delay = 0}, {chips = '!!!', StatusText = true})
+                                update_hand_text({delay = 0}, {mult = '!!!', StatusText = true})
+                                delay(2.0)
+                            elseif is_X then
+                                update_hand_text({delay = 0}, {chips = 'x??', StatusText = true})
+                                update_hand_text({delay = 0}, {mult = 'x??', StatusText = true})
+                                delay(1.3)
+                            else
+                                update_hand_text({delay = 0}, {chips = '+??', StatusText = true})
+                                update_hand_text({delay = 0}, {mult = '+??', StatusText = true})
+                                delay(1.3)
+                            end
+                        end
+                        --]]
                     end
                 end
             end
