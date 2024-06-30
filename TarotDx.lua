@@ -1386,8 +1386,8 @@ local function overrides()
                     -- Cryptid Glitched compat
                     if SMODS.Mods and SMODS.Mods['Cryptid'] and card.edition.cry_glitched then
 
-                        local bad = (love.math.random(1, 10) / 100)
-                        local gud = (love.math.random(11, 100) / 100)
+                        local bad = (love.math.random(1, 10) / 10)
+                        local gud = (love.math.random(11, 100) / 10)
                         local hellno = love.math.random() < 1 / 3
 
                         G.GAME.hands[hand].chips = math.floor(math.max(G.GAME.hands[hand].chips * ((hellno and bad) or gud), 0))
