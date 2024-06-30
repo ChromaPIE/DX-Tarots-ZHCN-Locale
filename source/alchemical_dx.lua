@@ -236,7 +236,7 @@ function Card.can_use_consumeable(self, any_state, skip_check)
 
         if G.STATE ~= G.STATES.HAND_PLAYED and G.STATE ~= G.STATES.DRAW_TO_HAND and G.STATE ~= G.STATES.PLAY_TAROT or any_state then
             if self.ability.name == 'The Seeker DX' then
-                return #G.consumeables.cards < G.consumeables.config.card_limit or (card and card.area == G.consumeables)
+                return #G.consumeables.cards < G.consumeables.config.card_limit or self.area == G.consumeables
             end
             if self.ability.name == "Philosopher's Stone DX" then
                 if G.STATE == G.STATES.SELECTING_HAND then
@@ -257,24 +257,13 @@ function Card.can_use_consumeable(self, any_state, skip_check)
     end
 end
 
-local Game_init_item_prototypes_ref = Game.init_item_prototypes
-function Game.init_item_prototypes(self)
+-- Manage Philosopher DX
+local blind_set_blind_ref = Blind.set_blind
+function Blind.set_blind(self, blind, reset, silent)
 
-    Game_init_item_prototypes_ref(self)
+    blind_set_blind_ref(self, blind, reset, silent)
 
-    G.P_CENTER_POOLS.Alchemical_dx = {}
-    G.localization.descriptions.Alchemical_dx = {}
-
-    load_dx_alchemical_packs()
-    load_dx_alchemical_cards()
-end
-
-local Game_update_round_eval_ref = Game.update_round_eval
-function Game.update_round_eval(self, dt)
-
-    Game_update_round_eval_ref(self, dt)
-
-    if G.deck.config.philosopher_dx and G.deck.config.philosopher_dx > 0 then
+    if G.deck.config.philosopher_dx and G.deck.config.philosopher_dx > 0 and (not reset) and (not silent) then
         G.deck.config.philosopher = true
         G.deck.config.philosopher_dx = G.deck.config.philosopher_dx - 1
     end
