@@ -64,7 +64,7 @@ local function setup_consumables()
     G.P_CENTERS.c_chariot_cu=          {order = 8,     discovered = true, cost = 5, consumeable = true, name = "The Cursed Chariot", pos = {x=7,y=0}, set = "Tarot", effect = "Round Bonus", cost_mult = 1.0, config = {type = '_cu', mod_conv = 'm_steel', extra = 1, unique = true, nb_curse = 2}, atlas = 'Van_cu'}
     G.P_CENTERS.c_justice_cu=          {order = 9,     discovered = true, cost = 5, consumeable = true, name = "Cursed Justice", pos = {x=8,y=0}, set = "Tarot", effect = "Round Bonus", cost_mult = 1.0, config = {type = '_cu', mod_conv = 'm_glass', extra = 1.5, unique = true, nb_curse = 2}, atlas = 'Van_cu'}
     G.P_CENTERS.c_hermit_cu=           {order = 10,    discovered = true, cost = 5, consumeable = true, name = "The Cursed Hermit", pos = {x=9,y=0}, set = "Tarot", effect = "Dollar Doubler", cost_mult = 1.0, config = {type = '_cu', extra = 50, unique = true, nb_curse = 2}, atlas = 'Van_cu'}
-    G.P_CENTERS.c_wheel_of_fortune_cu= {order = 11,    discovered = true, cost = 5, consumeable = true, name = "The Cursed Wheel of Fortune", pos = {x=0,y=1}, set = "Tarot", effect = "Round Bonus", cost_mult = 1.0, config = {type = '_cu', unique = true, nb_curse = 2, extra = 3}, atlas = 'Van_cu'}
+    G.P_CENTERS.c_wheel_of_fortune_cu= {order = 11,    discovered = true, cost = 5, consumeable = true, name = "The Cursed Wheel of Fortune", pos = {x=0,y=1}, set = "Tarot", effect = "Round Bonus", cost_mult = 1.0, config = {type = '_cu', unique = true, nb_curse = 1, extra = 2}, atlas = 'Van_cu'}
     G.P_CENTERS.c_strength_cu=         {order = 12,    discovered = true, cost = 5, consumeable = true, name = "Cursed Strength", pos = {x=1,y=1}, set = "Tarot", effect = "Round Bonus", cost_mult = 1.0, config = {type = '_cu', mod_conv = 'up_rank', max_highlighted = 5, min_highlighted = 1, unique = true, nb_curse = 2}, atlas = 'Van_cu'}
     G.P_CENTERS.c_hanged_man_cu=       {order = 13,    discovered = true, cost = 5, consumeable = true, name = "The Cursed Hanged Man", pos = {x=2,y=1}, set = "Tarot", effect = "Card Removal", cost_mult = 1.0, config = {type = '_cu', remove_card = true, max_highlighted = 4, min_highlighted = 1, unique = true, nb_curse = 2}, atlas = 'Van_cu'}
     G.P_CENTERS.c_death_cu=            {order = 14,    discovered = true, cost = 5, consumeable = true, name = "Cursed Death", pos = {x=3,y=1}, set = "Tarot", effect = "Card Conversion", cost_mult = 1.0, config = {type = '_cu', mod_conv = 'card', max_highlighted = 5, min_highlighted = 2, unique = true, nb_curse = 2}, atlas = 'Van_cu'}
@@ -441,20 +441,20 @@ local function setUpLocalizationTarotCU()
         }
     }
     G.localization.descriptions.Tarot_cu.c_wheel_of_fortune_cu = {
-        name = "The Cursed Wheel of Fortune",
+        name = "宿运旋轮",
         text = {
-            "Add {C:dark_edition}Foil{}, {C:dark_edition}Holographic{}, or",
-            "{C:dark_edition}Polychrome{} edition",
-            "to a random {C:attention}Jokers{}",
-            "{C:green}#1# in #2#{} chance to repeat once"
+            "为随机一张{C:attention}小丑牌",
+            "添加{C:dark_edition}闪箔{}、{C:dark_edition}镭射{}",
+            "或{C:dark_edition}多彩{}版本",
+            "且有{C:green}#1#/#2#{}的几率重新触发一次"
         }
     }
     G.localization.descriptions.Tarot_cu.c_strength_cu = {
-        name = "Cursed Strength",
+        name = "异界之力",
         text = {
-            "Select up to {C:attention}#1#{} cards,",
-            "rank up {C:attention}all cards{} matching",
-            "{C:attention}selected ranks{}"
+            "选定至多{C:attention}#1#{}张卡牌",
+            "并将{C:attention}所有{}相同点数的牌",
+            "的点数提升{C:attention}1"
         }
     }
     G.localization.descriptions.Tarot_cu.c_hanged_man_cu = {
@@ -529,6 +529,7 @@ local function setUpLocalizationTarotCU()
         name = "阴蔑审判",
         text = {
             "随机生成一张",
+            "带有随机{C:dark_edition}版本{}的",
             "{C:red}稀有{C:attention}小丑牌",
             "{C:inactive}（必须有空位）"
         }
@@ -650,38 +651,34 @@ local function setUpLocalizationSpectralDX()
     G.localization.descriptions.Spectral_dx = {}
     
     G.localization.descriptions.Spectral_dx.c_familiar_dx = {
-        name = "Familiar DX",
+        name = "使魔·豪华",
         text = {
-            "Destroy {C:attention}2{} selected",
-            "cards in your hand, add",
-            "{C:attention}#1#{} random {C:attention}Enhanced face",
-            "{C:attention}cards{} to your hand"
+            "摧毁{C:attention}2{}张选定的手牌",
+            "并向手牌中添加{C:attention}#1#{}张",
+            "随机{C:attention}增强{}的{C:attention}人头牌"
         }
     }
     G.localization.descriptions.Spectral_dx.c_grim_dx = {
-        name = "Grim DX",
+        name = "严峻·豪华",
         text = {
-            "Destroy {C:attention}2{} selected",
-            "cards in your hand,",
-            "add {C:attention}#1#{} random {C:attention}Enhanced",
-            "{C:attention}Aces{} to your hand"
+            "摧毁{C:attention}2{}张选定的手牌",
+            "并向手牌中添加{C:attention}#1#{}张",
+            "随机{C:attention}增强{}的{C:attention}A"
         }
     }
     G.localization.descriptions.Spectral_dx.c_incantation_dx = {
-        name = "Incantation DX",
+        name = "咒语·豪华",
         text = {
-            "Destroy {C:attention}2{} selected",
-            "cards in your hand, add {C:attention}#1#",
-            "random {C:attention}Enhanced numbered",
-            "{C:attention}cards{} to your hand"
+            "摧毁{C:attention}2{}张选定的手牌",
+            "并向手牌中添加{C:attention}#1#{}张",
+            "随机{C:attention}增强{}的{C:attention}数字牌"
         }
     }
     G.localization.descriptions.Spectral_dx.c_talisman_dx = {
-        name = "Talisman DX",
+        name = "护身符·豪华",
         text = {
-            "Add a {C:attention}Gold Seal{}",
-            "to up to {C:attention}3{} selected",
-            "cards in your hand"
+            "为{C:attention}3{}张选定的手牌",
+            "打上{C:attention}金色蜡封"
         }
     }
     G.localization.descriptions.Spectral_dx.c_aura_dx = {
@@ -714,19 +711,18 @@ local function setUpLocalizationSpectralDX()
         }
     }
     G.localization.descriptions.Spectral_dx.c_ectoplasm_dx = {
-        name = "Ectoplasm DX",
+        name = "灵质·豪华",
         text = {
-            "Add {C:dark_edition}Negative{} to",
-            "a random {C:attention}Joker,",
-            "destroys {C:attention}all{} consumables"
+            "为随机一张{C:attention}小丑牌",
+            "添加{C:dark_edition}负片{}效果",
+            "摧毁{C:attention}所有{}消耗牌"
         }
     }
     G.localization.descriptions.Spectral_dx.c_immolate_dx = {
-        name = "Immolate DX",
+        name = "火祭·豪华",
         text = {
-            "Destroys {C:attention}#1#{} selected",
-            "cards in hand,",
-            "gain {C:money}$#2#"
+            "摧毁{C:attention}#1#{}张选定的手牌",
+            "获得{C:money}$#2#"
         }
     }
     G.localization.descriptions.Spectral_dx.c_ankh_dx = {
@@ -770,7 +766,7 @@ local function setUpLocalizationSpectralDX()
         name = "神秘生物·豪华",
         text = {
             "为所选定的{C:attention}1{}张手牌",
-                    "生成{C:attention}#1#{}张复制"
+            "生成{C:attention}#1#{}张复制"
         }
     }
     G.localization.descriptions.Spectral_dx.c_soul_dx = {
@@ -1177,7 +1173,10 @@ local function overrides()
             if ((new_type == 'Tarot') or (new_type == 'Tarot_dx')) and (pseudorandom('upgrade_card'..G.GAME.round_resets.ante) > math.min(1, math.max(0, 1 - tarot_cu_rate))) then new_type = "Tarot_cu" end
             if new_type == 'Planet' and (pseudorandom('upgrade_card'..G.GAME.round_resets.ante) > math.min(1, math.max(0, 1 - planet_dx_rate))) then new_type = "Planet_dx" end
             if new_type == 'Spectral' and (pseudorandom('upgrade_card'..G.GAME.round_resets.ante) > math.min(1, math.max(0, 1 - spectral_dx_rate))) then new_type = "Spectral_dx" end
-            if new_type == 'Alchemical' and (pseudorandom('upgrade_card'..G.GAME.round_resets.ante) > math.min(1, math.max(0, 1 - alchemical_dx_rate))) then new_type = "Alchemical_dx" end
+            
+            local alc_mod = alchemical_dx_rate
+            if G.GAME.used_cu_augments and G.GAME.used_cu_augments.c_seeker_cu then alc_mod = alchemical_dx_rate * G.P_CENTERS.c_seeker_cu.config.prob_mult * G.GAME.used_cu_augments.c_seeker_cu end
+            if new_type == 'Alchemical' and (pseudorandom('upgrade_card'..G.GAME.round_resets.ante) > math.min(1, math.max(0, 1 - (alc_mod)))) then new_type = "Alchemical_dx" end
 
             -- If type is set to DX, need to manage soulable option
             if soulable and (not G.GAME.banned_keys['c_soul']) then
@@ -1213,14 +1212,14 @@ local function overrides()
         if planet_edition_enabled then
             if (_type == 'Planet' or _type == 'Planet_dx') and created_card.ability.consumeable and created_card.ability.consumeable.hand_type then
                 local mod = math.max(1, 1 + (0.07 * math.min(7, G.GAME.hands[created_card.ability.consumeable.hand_type].level))) or 1
-                if G.GAME.used_cu_augments and G.GAME.used_cu_augments.c_high_priestess_cu then mod = mod * G.P_CENTERS.c_high_priestess_cu.config.prob_mult end
+                if G.GAME.used_cu_augments and G.GAME.used_cu_augments.c_high_priestess_cu then mod = mod * G.P_CENTERS.c_high_priestess_cu.config.prob_mult * G.GAME.used_cu_augments.c_high_priestess_cu end
                 local edition = poll_edition('edi'..(key_append or '')..G.GAME.round_resets.ante, mod, true)
                 created_card:set_edition(edition)
                 check_for_unlock({type = 'have_edition'})
             end
             if created_card.ability.name == 'Black Hole' or created_card.ability.name == 'Black Hole DX' then
                 local mod = 1
-                if G.GAME.used_cu_augments and G.GAME.used_cu_augments.c_high_priestess_cu then mod = mod * G.P_CENTERS.c_high_priestess_cu.config.prob_mult end
+                if G.GAME.used_cu_augments and G.GAME.used_cu_augments.c_high_priestess_cu then mod = mod * G.P_CENTERS.c_high_priestess_cu.config.prob_mult * G.GAME.used_cu_augments.c_high_priestess_cu end
                 local edition = poll_edition('edi'..(key_append or '')..G.GAME.round_resets.ante, mod, true)
                 created_card:set_edition(edition)
                 check_for_unlock({type = 'have_edition'})
@@ -1676,7 +1675,7 @@ local function overrides()
                 if fool_c then
                         info_queue[#info_queue+1] = fool_c
                 end
-                elseif _c.name == "The Cursed High Priestess" then loc_vars = {_c.config.prob_mult}; info_queue[#info_queue+1] = G.P_CENTERS.e_foil; info_queue[#info_queue+1] = G.P_CENTERS.e_holo; info_queue[#info_queue+1] = G.P_CENTERS.e_polychrome; 
+                elseif _c.name == "The Cursed High Priestess" then loc_vars = {_c.config.prob_mult * ((G.GAME.used_cu_augments.c_high_priestess_cu or 0) + 1)}; info_queue[#info_queue+1] = G.P_CENTERS.e_foil; info_queue[#info_queue+1] = G.P_CENTERS.e_holo; info_queue[#info_queue+1] = G.P_CENTERS.e_polychrome; 
                 elseif _c.name == "The Cursed Empress" then
                     local fool_c = G.P_CENTERS["c_empress_dx"] or nil
                     local created_card = fool_c and localize{type = 'name_text', key = fool_c.key, set = fool_c.set..fool_c.config.type} or localize('k_none')
@@ -1772,6 +1771,7 @@ local function overrides()
                 end
                 loc_vars = {localize(_c.config.suit_conv, 'suits_plural'), colours = {G.C.SUITS[_c.config.suit_conv]}}
                 elseif _c.name == "Cursed Judgement" then
+                    info_queue[#info_queue+1] = G.P_CENTERS.e_foil; info_queue[#info_queue+1] = G.P_CENTERS.e_holo; info_queue[#info_queue+1] = G.P_CENTERS.e_polychrome;
                 elseif _c.name == "The Cursed World" then
                     local fool_c = G.P_CENTERS["c_world_dx"] or nil
                     local created_card = fool_c and localize{type = 'name_text', key = fool_c.key, set = fool_c.set..fool_c.config.type} or localize('k_none')
@@ -2860,6 +2860,8 @@ local function overrides()
                     play_sound('timpani')
                     local rarity = 0.98
                     local card = create_card('Joker', G.jokers, false, rarity, nil, nil, nil, 'jud')
+                    local edition = poll_edition('cu_judg', nil, true, true)
+                    if not card.edition then card:set_edition(edition) end
                     card:add_to_deck()
                     G.jokers:emplace(card)
                     used_tarot:juice_up(0.3, 0.5)
