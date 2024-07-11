@@ -1383,6 +1383,18 @@ local function overrides()
                             delay(1.3)
                         end
                     end
+                    -- Cryptid Astral Compat
+                    if SMODS.Mods and SMODS.Mods['Cryptid'] and card.edition.cry_astral then
+                        G.GAME.hands[hand].mult = math.floor(math.max(G.GAME.hands[hand].mult ^ G.P_CENTERS.e_cry_astral.config.pow_mult, 1))
+                        if not instant then
+                            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                                play_sound('cry_^Mult')
+                                card:juice_up(0.8, 0.5)
+                                return true end }))
+                            update_hand_text({delay = 0}, {mult = '^' .. tostring(G.P_CENTERS.e_cry_astral.config.pow_mult), StatusText = true})
+                            delay(1.3)
+                        end
+                    end
                     -- Cryptid Glitched compat
                     if SMODS.Mods and SMODS.Mods['Cryptid'] and card.edition.cry_glitched then
 
@@ -2037,6 +2049,49 @@ local function overrides()
                             return true end }))
                             update_hand_text({delay = 0}, {mult = 'x' .. tostring(G.P_CENTERS.e_polychrome.config.extra), StatusText = true})
                     end
+                    -- Bunco Glitter compat
+                    if SMODS.Mods and SMODS.Mods['Bunco'] and self.edition.bunc_glitter then
+                        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                            play_sound('bunc_glitter')
+                            self:juice_up(0.8, 0.5)
+                            return true end }))
+                        update_hand_text({delay = 0}, {chips = 'x' .. tostring(G.P_CENTERS.e_bunc_glitter.config.Xchips), StatusText = true})
+                    end
+                    -- Cryptid Mosaic compat
+                    if SMODS.Mods and SMODS.Mods['Cryptid'] and self.edition.cry_mosaic then
+                        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                            play_sound('cry_e_mosaic')
+                            self:juice_up(0.8, 0.5)
+                            return true end }))
+                        update_hand_text({delay = 0}, {chips = 'x' .. tostring(G.P_CENTERS.e_cry_mosaic.config.Xchips), StatusText = true})
+                    end
+                    -- Cryptid Oversaturated compat
+                    if SMODS.Mods and SMODS.Mods['Cryptid'] and self.edition.cry_oversat then
+                        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                            play_sound('cry_e_oversaturated')
+                            self:juice_up(0.8, 0.5)
+                            return true end }))
+                        update_hand_text({delay = 0}, {chips = 'x2', StatusText = true})
+                        update_hand_text({delay = 0}, {mult = 'x2', StatusText = true})
+                    end
+                    -- Cryptid Astral Compat
+                    if SMODS.Mods and SMODS.Mods['Cryptid'] and self.edition.cry_astral then
+                        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                            play_sound('cry_^Mult')
+                            self:juice_up(0.8, 0.5)
+                            return true end }))
+                        update_hand_text({delay = 0}, {mult = '^' .. tostring(G.P_CENTERS.e_cry_astral.config.pow_mult), StatusText = true})
+                    end
+                    -- Cryptid Glitched compat
+                    if SMODS.Mods and SMODS.Mods['Cryptid'] and self.edition.cry_glitched then
+                        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                            play_sound('cry_e_glitched')
+                            self:juice_up(0.8, 0.5)
+                            return true end }))
+                        update_hand_text({ delay = 0 }, { chips = 'x' .. '...', StatusText = true })
+                        update_hand_text({ delay = 0 }, { mult = 'x' .. '...', StatusText = true })
+                        -- TODO either keep it as is or force hellno/bad/gud values to be pulled once and applied to every hand
+                    end
                 end
                 delay(1.3)
                 for k, v in pairs(G.GAME.hands) do
@@ -2423,7 +2478,7 @@ local function overrides()
                         play_sound('foil1')
                         self:juice_up(0.8, 0.5)
                         return true end }))
-                        update_hand_text({delay = 0}, {mult = '+' .. tostring(G.P_CENTERS.e_foil.config.extra), StatusText = true})
+                        update_hand_text({delay = 0}, {chips = '+' .. tostring(G.P_CENTERS.e_foil.config.extra), StatusText = true})
                 end
                 if self.edition.polychrome then
                     G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.9, func = function()
@@ -2431,6 +2486,49 @@ local function overrides()
                         self:juice_up(0.8, 0.5)
                         return true end }))
                         update_hand_text({delay = 0}, {mult = 'x' .. tostring(G.P_CENTERS.e_polychrome.config.extra), StatusText = true})
+                end
+                -- Bunco Glitter compat
+                if SMODS.Mods and SMODS.Mods['Bunco'] and self.edition.bunc_glitter then
+                    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                        play_sound('bunc_glitter')
+                        self:juice_up(0.8, 0.5)
+                        return true end }))
+                    update_hand_text({delay = 0}, {chips = 'x' .. tostring(G.P_CENTERS.e_bunc_glitter.config.Xchips), StatusText = true})
+                end
+                -- Cryptid Mosaic compat
+                if SMODS.Mods and SMODS.Mods['Cryptid'] and self.edition.cry_mosaic then
+                    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                        play_sound('cry_e_mosaic')
+                        self:juice_up(0.8, 0.5)
+                        return true end }))
+                    update_hand_text({delay = 0}, {chips = 'x' .. tostring(G.P_CENTERS.e_cry_mosaic.config.Xchips), StatusText = true})
+                end
+                -- Cryptid Oversaturated compat
+                if SMODS.Mods and SMODS.Mods['Cryptid'] and self.edition.cry_oversat then
+                    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                        play_sound('cry_e_oversaturated')
+                        self:juice_up(0.8, 0.5)
+                        return true end }))
+                    update_hand_text({delay = 0}, {chips = 'x2', StatusText = true})
+                    update_hand_text({delay = 0}, {mult = 'x2', StatusText = true})
+                end
+                -- Cryptid Astral Compat
+                if SMODS.Mods and SMODS.Mods['Cryptid'] and self.edition.cry_astral then
+                    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                        play_sound('cry_^Mult')
+                        self:juice_up(0.8, 0.5)
+                        return true end }))
+                    update_hand_text({delay = 0}, {mult = '^' .. tostring(G.P_CENTERS.e_cry_astral.config.pow_mult), StatusText = true})
+                end
+                -- Cryptid Glitched compat
+                if SMODS.Mods and SMODS.Mods['Cryptid'] and self.edition.cry_glitched then
+                    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                        play_sound('cry_e_glitched')
+                        self:juice_up(0.8, 0.5)
+                        return true end }))
+                    update_hand_text({ delay = 0 }, { chips = 'x' .. '...', StatusText = true })
+                    update_hand_text({ delay = 0 }, { mult = 'x' .. '...', StatusText = true })
+                    -- TODO either keep it as is or force hellno/bad/gud values to be pulled once and applied to every hand
                 end
             end
             delay(1.3)
@@ -3005,7 +3103,7 @@ local function overrides()
                 G.STATE = G.STATES.BUFFOON_PACK
                 G.GAME.pack_size = self.ability.extra
             elseif self.ability.name:find('Alchemy') then
-                G.STATE = G.STATES.BUFFOON_PACK
+                G.STATE = G.STATES.STANDARD_PACK
                 G.GAME.pack_size = self.ability.extra
             end
 
@@ -3236,35 +3334,21 @@ local function overrides()
         card_set_ability_ref(self, center, initial, delay_sprites)
 
         if self.ability and self.ability.consumeable and self.ability.name and self.ability.set then 
-            if self.ability.type == '_dx' then
+            if self.ability.set == 'Tarot' or self.ability.set == 'Planet' or self.ability.set == 'Spectral' or self.ability.set == 'Booster' or self.ability.set == 'Alchemical' then
                 if not G.OVERLAY_MENU then 
                     for k, v in pairs(G.P_CENTERS) do
                         if v.name == self.ability.name then
-                            -- Add normal and cursed version
-                            G.GAME.used_jokers[string.sub(k, 1, -4)] = true
-                            G.GAME.used_jokers[string.sub(k, 1, -4)..'_cu'] = true
-                        end
-                    end
-                end
-            end
-            if self.ability.type == '_cu' then
-                if not G.OVERLAY_MENU then 
-                    for k, v in pairs(G.P_CENTERS) do
-                        if v.name == self.ability.name then
-                            -- Add normal and DX version
-                            G.GAME.used_jokers[string.sub(k, 1, -4)] = true
-                            G.GAME.used_jokers[string.sub(k, 1, -4)..'_dx'] = true
-                        end
-                    end
-                end
-            end
-            if self.ability.set == 'Tarot' or self.ability.set == 'Planet' or self.ability.set == 'Spectral' or self.ability.set == 'Booster' then
-                if not G.OVERLAY_MENU then 
-                    for k, v in pairs(G.P_CENTERS) do
-                        if v.name == self.ability.name then
-                            -- Add DX/CU version
-                            G.GAME.used_jokers[k..'_dx'] = true
-                            G.GAME.used_jokers[k..'_cu'] = true
+                            local normal_k = k
+                            if self.ability.type == '_dx' then
+                                normal_k = string.sub(normal_k, 1, -4)
+                            end
+                            if self.ability.type == '_cu' then
+                                normal_k = string.sub(normal_k, 1, -4)
+                            end
+                            -- Add normal/DX/CU version
+                            G.GAME.used_jokers[normal_k] = true
+                            G.GAME.used_jokers[normal_k..'_dx'] = true
+                            G.GAME.used_jokers[normal_k..'_cu'] = true
                         end
                     end
                 end
@@ -3277,40 +3361,32 @@ local function overrides()
     function Card.remove(self)
 
         if self.ability and self.ability.consumeable and self.ability.name and self.ability.set then 
-            if self.ability.type == '_dx' then
+            if self.ability.set == 'Tarot' or self.ability.set == 'Planet' or self.ability.set == 'Spectral' or self.ability.set == 'Booster' or self.ability.set == 'Alchemical' then
                 if not G.OVERLAY_MENU then 
                     for k, v in pairs(G.P_CENTERS) do
                         if v.name == self.ability.name then
-                            if not next(find_joker(self.ability.name, true)) then 
-                                -- Remove normal and cursed version
-                                G.GAME.used_jokers[string.sub(k, 1, -4)] = nil
-                                G.GAME.used_jokers[string.sub(k, 1, -4)..'_cu'] = nil
+                            local normal_k = k
+                            if self.ability.type == '_dx' then
+                                normal_k = string.sub(normal_k, 1, -4)
                             end
-                        end
-                    end
-                end
-            end
-            if self.ability.type == '_cu' then
-                if not G.OVERLAY_MENU then 
-                    for k, v in pairs(G.P_CENTERS) do
-                        if v.name == self.ability.name then
-                            if not next(find_joker(self.ability.name, true)) then 
-                                -- Remove normal and DX version
-                                G.GAME.used_jokers[string.sub(k, 1, -4)] = nil
-                                G.GAME.used_jokers[string.sub(k, 1, -4)..'_dx'] = nil
+                            if self.ability.type == '_cu' then
+                                normal_k = string.sub(normal_k, 1, -4)
                             end
-                        end
-                    end
-                end
-            end
-            if self.ability.set == 'Tarot' or self.ability.set == 'Planet' or self.ability.set == 'Spectral' or self.ability.set == 'Booster' then
-                if not G.OVERLAY_MENU then 
-                    for k, v in pairs(G.P_CENTERS) do
-                        if v.name == self.ability.name then
-                            if not next(find_joker(self.ability.name, true)) then 
-                                -- Remove DX/CU version
-                                G.GAME.used_jokers[k..'_dx'] = nil
-                                G.GAME.used_jokers[k..'_cu'] = nil
+                            local consumeable_exists
+                            for k, v in pairs(G.consumeables.cards) do
+                                if v and type(v) == 'table' and (
+                                    v.config.center.key == normal_k 
+                                    or v.config.center.key == normal_k..'_dx'
+                                    or v.config.center.key == normal_k..'_cu'
+                                ) then
+                                    consumeable_exists = true
+                                end
+                            end
+                            if not consumeable_exists then 
+                                -- Remove normal/DX/CU version
+                                G.GAME.used_jokers[normal_k] = nil
+                                G.GAME.used_jokers[normal_k..'_dx'] = nil
+                                G.GAME.used_jokers[normal_k..'_cu'] = nil
                             end
                         end
                     end
@@ -3431,7 +3507,7 @@ local function overrides()
 
         -- Check for suit buff
         if self.base and self.base.suit and G.GAME.used_cu_augments and ((self.base.suit == 'Diamonds' and G.GAME.used_cu_augments.c_star_cu) or (self.base.suit == 'Clubs' and G.GAME.used_cu_augments.c_moon_cu) or (self.base.suit == 'Hearts' and G.GAME.used_cu_augments.c_sun_cu) or (self.base.suit == 'Spades' and G.GAME.used_cu_augments.c_world_cu)) then   -- Overwrite
-            card_set_debuff_ref(self, false)
+            self.debuff = false
             self.params.debuff_by_curse = nil
         -- Check if the debuff is from a curse
         elseif not should_debuff and self.params.debuff_by_curse then
