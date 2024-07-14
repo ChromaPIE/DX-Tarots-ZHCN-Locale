@@ -1551,6 +1551,13 @@ function create_curse()
                 ["Pair"] = false,
                 ["High Card"] = false,
             }
+            if SMODS.findModByID("Bunco") then
+                new_curse.ability.hand['Spectrum'] = false
+                new_curse.ability.hand['Straight Spectrum'] = false
+                new_curse.ability.hand['Royal Spectrum'] = false
+                new_curse.ability.hand['Spectrum House'] = false
+                new_curse.ability.hand['Spectrum Five'] = false
+            end
             new_curse.ability.indicate_trig = false
         end
     end
