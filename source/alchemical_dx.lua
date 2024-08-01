@@ -1428,11 +1428,34 @@ function CodexArcanum.LoadDX()
 
     -- DX Sprites
 
-    local js_mod = SMODS.findModByID("JeffDeluxeConsumablesPack")
-    SMODS.Sprite:new("alchemical_dx_atlas", js_mod.path, "alchemical_dx_atlas.png", 71, 95, "asset_atli"):register();
-	SMODS.Sprite:new("ca_booster_dx_atlas", js_mod.path, "ca_booster_dx_atlas.png", 71, 95, "asset_atli"):register();
-	SMODS.Sprite:new("ca_others_dx_atlas", js_mod.path, "ca_others_dx_atlas.png", 71, 95, "asset_atli"):register();
-	SMODS.Sprite:new("ca_others_cu_atlas", js_mod.path, "ca_others_cu_atlas.png", 71, 95, "asset_atli"):register();
+    SMODS.Atlas({ 
+        key = "alchemical_dx_atlas", 
+        atlas_table = "ASSET_ATLAS", 
+        path = "alchemical_dx_atlas.png", 
+        px = 71, 
+        py = 95 
+    })
+    SMODS.Atlas({ 
+        key = "ca_booster_dx_atlas", 
+        atlas_table = "ASSET_ATLAS", 
+        path = "ca_booster_dx_atlas.png", 
+        px = 71, 
+        py = 95 
+    })
+    SMODS.Atlas({ 
+        key = "ca_others_dx_atlas", 
+        atlas_table = "ASSET_ATLAS", 
+        path = "ca_others_dx_atlas.png", 
+        px = 71, 
+        py = 95 
+    })
+    SMODS.Atlas({ 
+        key = "ca_others_cu_atlas", 
+        atlas_table = "ASSET_ATLAS", 
+        path = "ca_others_cu_atlas.png", 
+        px = 71, 
+        py = 95 
+    })
     
 	G.P_CENTER_POOLS.Alchemical_dx = {}
 	G.localization.descriptions.Alchemical_dx = {}
